@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="home.html"> <img src="assets/images/logo.png" alt="logo"> </a> </div>
+                    <div class="logo"> <a href="home.html"> <img src="{{asset('frontend/assets/images/logo.png')}}" alt="logo"> </a> </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= --> </div>
                 <!-- /.logo-holder -->
@@ -202,7 +202,7 @@
                                                     </div>
                                                     <!-- /.col -->
 
-                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="assets/images/banners/top-menu-banner.jpg" alt=""> </div>
+                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}" alt=""> </div>
                                                     <!-- /.yamm-content -->
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@
                                                             <li><a href="#">Memory Cards</a></li>
                                                         </ul>
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png"></a> </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="{{asset('frontend/assets/images/banners/banner-side.png')}}"></a> </div>
                                                 </div>
                                                 <!-- /.row -->
                                             </div>

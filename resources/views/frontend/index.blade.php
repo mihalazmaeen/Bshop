@@ -108,7 +108,7 @@
                                                     <li><a href="#">Headphones</a></li>
                                                 </ul>
                                             </div>
-                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a> </div>
+                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="{{asset('frontend/assets/images/banners/banner-side.png')}}" /></a> </div>
                                         </div>
                                         <!-- /.row -->
                                     </li>
@@ -214,7 +214,7 @@
                                                     <li><a href="#">Headphones</a></li>
                                                 </ul>
                                             </div>
-                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a> </div>
+                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="{{asset('frontend/assets/images/banners/banner-side.png')}}" /></a> </div>
                                         </div>
                                         <!-- /.row -->
                                     </li>
@@ -319,7 +319,7 @@
                                                     <li><a href="#">Headphones</a></li>
                                                 </ul>
                                             </div>
-                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a> </div>
+                                            <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="{{asset('frontend/assets/images/banners/banner-side.png')}}" /></a> </div>
                                         </div>
                                         <!-- /.row -->
                                     </li>
@@ -357,7 +357,7 @@
                         <div class="item">
                             <div class="products">
                                 <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="assets/images/hot-deals/p25.jpg" alt=""> </div>
+                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p25.jpg')}}" alt=""> </div>
                                     <div class="sale-offer-tag"><span>49%<br>
                     off</span></div>
                                     <div class="timing-wrapper">
@@ -401,7 +401,7 @@
                         <div class="item">
                             <div class="products">
                                 <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="assets/images/hot-deals/p5.jpg" alt=""> </div>
+                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p5.jpg')}}" alt=""> </div>
                                     <div class="sale-offer-tag"><span>35%<br>
                     off</span></div>
                                     <div class="timing-wrapper">
@@ -445,7 +445,7 @@
                         <div class="item">
                             <div class="products">
                                 <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="assets/images/hot-deals/p10.jpg" alt=""> </div>
+                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p10.jpg')}}" alt=""> </div>
                                     <div class="sale-offer-tag"><span>35%<br>
                     off</span></div>
                                     <div class="timing-wrapper">
@@ -504,7 +504,7 @@
                                             <div class="row product-micro-row">
                                                 <div class="col col-xs-5">
                                                     <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="assets/images/products/p30.jpg" alt=""> </a> </div>
+                                                        <div class="image"> <a href="#"> <img src="frontend/assets/images/products/p30.jpg" alt=""> </a> </div>
                                                         <!-- /.image -->
 
                                                     </div>
@@ -1117,7 +1117,7 @@
 
                 <div id="hero">
                     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                        <div class="item" style="background-image: url(assets/images/sliders/01.jpg);">
+                        <div class="item" style="background-image: url({{asset('frontend/assets/images/sliders/01.jpg')}});">
                             <div class="container-fluid">
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">Top Brands</div>
@@ -1131,7 +1131,7 @@
                         </div>
                         <!-- /.item -->
 
-                        <div class="item" style="background-image: url(assets/images/sliders/02.jpg);">
+                        <div class="item" style="background-image: url({{asset('frontend/assets/images/sliders/02.jpg')}});">
                             <div class="container-fluid">
                                 <div class="caption bg-color vertical-center text-left">
                                     <div class="slider-header fadeInDown-1">Spring 2016</div>
@@ -1218,7 +1218,7 @@
                                         <div class="products">
                                             <div class="product">
                                                 <div class="product-image">
-                                                    <div class="image"> <a href="detail.html"><img  src="assets/images/products/p1.jpg" alt=""></a> </div>
+                                                    <div class="image"> <a href="detail.html"><img  src="{{asset('frontend/assets/images/products/p1.jpg')}}" alt=""></a> </div>
                                                     <!-- /.image -->
 
                                                     <div class="tag new"><span>new</span></div>
@@ -3202,34 +3202,34 @@
         <div id="brands-carousel" class="logo-slider wow fadeInUp">
             <div class="logo-slider-inner">
                 <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
-                    <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item m-t-15"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand1.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item m-t-10"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand2.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand3.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand3.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand4.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand5.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand6.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand6.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand2.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand4.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand1.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
 
-                    <div class="item"> <a href="#" class="image"> <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt=""> </a> </div>
+                    <div class="item"> <a href="#" class="image"> <img data-echo="{{asset('frontend/assets/images/brands/brand5.png')}}" src="{{asset('frontend/assets/images/blank.gif')}}" alt=""> </a> </div>
                     <!--/.item-->
                 </div>
                 <!-- /.owl-carousel #logo-slider -->
