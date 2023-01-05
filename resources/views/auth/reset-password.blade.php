@@ -29,11 +29,11 @@
                                 <input type="email" class="form-control unicase-form-control text-input" id="email" name="email" >
                             </div>
                             <div class="form-group">
-                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
                                 <input id="password"  class="form-control unicase-form-control text-input" type="password" name="password" required  />
                             </div>
                             <div class="form-group">
-                                <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                <label class="info-title" for="exampleInputEmail1">Confirm password<span>*</span></label>
                                 <input id="password_confirmation"class="form-control unicase-form-control text-input"  type="password" name="password_confirmation" required   >
                             </div>
 
