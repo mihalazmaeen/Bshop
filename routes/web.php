@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -56,3 +57,7 @@ Route::post('/user/profile/store', [IndexController::class, 'UserProfileStore'])
 Route::get('/user/profile/changePassword', [IndexController::class, 'UserChangePassword'])->name('change.password');
 Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdate'])->name('user.password.update');
 
+//Admin all brands
+Route::prefix('brand')->group(function(){
+    Route::get('/view', [BrandController::class, 'BrandView'])->name('all.brand');
+});
