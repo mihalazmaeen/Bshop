@@ -35,8 +35,10 @@
                                             <td>{{$item->brand_name_en}}</td>
                                             <td>{{$item->brand_name_bengali}}</td>
                                             <td><img src="{{asset($item->brand_image)}}" style="width: 70px; height: 40px;"></td>
-                                            <td><a href="" class="btn btn-info">Edit
-                                             <a href="" class="btn btn-danger"> Delete</td>
+                                            <td>
+                                                <a href="{{route('brand.edit',$item->id)}}" class="btn btn-info">Edit</a>
+                                                <a href="" class="btn btn-danger"> Delete</a>
+                                            </td>
 
                                         </tr>
                                             @endforeach
