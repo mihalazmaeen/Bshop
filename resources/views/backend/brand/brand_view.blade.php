@@ -35,8 +35,8 @@
                                             <td>{{$item->brand_name_en}}</td>
                                             <td>{{$item->brand_name_bengali}}</td>
                                             <td><img src="{{asset($item->brand_image)}}" style="width: 70px; height: 40px;"></td>
-                                            <td><a href="" class="btn btn-info">Edit</td>
-                                            <td><a href="" class="btn btn-danger">Delete</td>
+                                            <td><a href="" class="btn btn-info">Edit
+                                             <a href="" class="btn btn-danger"> Delete</td>
 
                                         </tr>
                                             @endforeach
@@ -74,18 +74,27 @@
                                                             <h5>Brand Name (English) <span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 <input type="text" name="brand_name_en" class="form-control" >
+                                                                @error('brand_name_en')
+                                                                <span class="text-danger">{{$message}}</span>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <h5>Brand Name (Bengali) <span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 <input type="text"   name="brand_name_bengali" class="form-control"  >
+                                                                @error('brand_name_bengali')
+                                                                <span class="text-danger">{{$message}}</span>
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <h5>Brand Image<span class="text-danger">*</span></h5>
                                                             <div class="controls">
                                                                 <input type="file" name="brand_image" class="form-control"  >
+                                                                @error('brand_image')
+                                                                <span class="text-danger">{{$message}}</span>
+                                                                @enderror
                                                             </div>
                                                         </div>
 
