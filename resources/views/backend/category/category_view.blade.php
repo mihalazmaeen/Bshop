@@ -38,7 +38,7 @@
                                             <td>{{$item->category_name_bengali}}</td>
 
                                             <td>
-                                                <a href="{{route('brand.edit',$item->id)}}" class="btn btn-info" title="Edit Brand"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{route('category.edit',$item->id)}}" class="btn btn-info" title="Edit Brand"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('brand.delete',$item->id)}}" id="delete" class="btn btn-danger" title="Delete Brand"><i class="fa fa-trash"></i></a>
                                             </td>
 
