@@ -103,7 +103,7 @@
                     window.location.href=link;
                     Swal.fire(
                         'Deleted!',
-                        'Brand has been deleted.',
+                        'Selected data has been deleted.',
                         'success'
                     )
                 }
