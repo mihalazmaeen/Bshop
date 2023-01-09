@@ -36,7 +36,7 @@
                                             <td>{{$item['category']['category_name_en']}}</td>
                                             <td>{{$item->subcategory_name_en}}</td>
                                             <td>{{$item->subcategory_name_bengali}}</td>
-                                            <td>
+                                            <td width="25%">
                                                 <a href="{{route('subcategory.edit',$item->id)}}" class="btn btn-info" title="Edit SubCategory"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('subcategory.delete',$item->id)}}" id="delete" class="btn btn-danger" title="Delete Category"><i class="fa fa-trash"></i></a>
                                             </td>

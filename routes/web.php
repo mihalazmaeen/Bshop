@@ -68,9 +68,8 @@ Route::prefix('brand')->group(function(){
     Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
 });
 //Admin all categories
-Route::prefix('category')->group(function(){
-    Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
-   Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+Route::prefix('category')->group(function(){Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
+
    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
    Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
    Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
@@ -81,4 +80,9 @@ Route::prefix('category')->group(function(){
     Route::get('/subcategory/edit/{id}', [SubCategoryController::class, 'SubCategoryEdit'])->name('subcategory.edit');
     Route::post('/subcategory/update', [SubCategoryController::class, 'SubCategoryUpdate'])->name('subcategory.update');
     Route::get('subcategory/delete/{id}', [SubCategoryController::class, 'SubCategoryDelete'])->name('subcategory.delete');
+    Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+
+//    All Sub Sub-Category
+    Route::get('/sub/subcategory/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
+
 });
