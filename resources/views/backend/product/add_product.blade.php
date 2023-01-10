@@ -99,7 +99,7 @@
                                                 <div class="form-group">
                                                     <h5>Product name (En) <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_name_en" class="form-control" >\
+                                                        <input type="text" name="product_name_en" class="form-control" >
                                                         @error('product_name_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -112,7 +112,7 @@
                                                 <div class="form-group">
                                                     <h5>Product name (Bengali) <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_name_bengali" class="form-control" >\
+                                                        <input type="text" name="product_name_bengali" class="form-control" >
                                                         @error('product_name_bengali')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -123,7 +123,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Code <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_code" class="form-control" >\
+                                                        <input type="text" name="product_code" class="form-control" >
                                                         @error('product_code')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -134,7 +134,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Quantity <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_quantity" class="form-control" >\
+                                                        <input type="text" name="product_quantity" class="form-control" >
                                                         @error('product_quantity')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -151,7 +151,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Tangs En <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_tags_en" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >\
+                                                        <input type="text" name="product_tags_en" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >
                                                         @error('product_tags_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -162,7 +162,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Tangs Bengali <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_tags_bengali" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >\
+                                                        <input type="text" name="product_tags_bengali" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >
                                                         @error('product_tags_bengali')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -173,7 +173,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Size En <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_size_en" class="form-control" value="small,medium,large" data-role="tagsinput" placeholder="add  product size" >\
+                                                        <input type="text" name="product_size_en" class="form-control" value="small,medium,large" data-role="tagsinput" placeholder="add  product size" >
                                                         @error('product_size_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -184,7 +184,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Size Bengali <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_size_bengali" class="form-control" value="বড়,ছোট,মাঝারি" data-role="tagsinput" placeholder="add product size" >\
+                                                        <input type="text" name="product_size_bengali" class="form-control" value="বড়,ছোট,মাঝারি" data-role="tagsinput" placeholder="add product size" >
                                                         @error('product_size_bengali')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -200,7 +200,7 @@
                                                 <div class="form-group">
                                                     <h5>Product color English <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_color_en" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >\
+                                                        <input type="text" name="product_color_en" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >
                                                         @error('product_color_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -211,7 +211,7 @@
                                                 <div class="form-group">
                                                     <h5>Product color Bengali <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="product_color_bengali" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >\
+                                                        <input type="text" name="product_color_bengali" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >
                                                         @error('product_color_bengali')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -227,7 +227,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Selling Price <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="selling_price" class="form-control" >\
+                                                        <input type="text" name="selling_price" class="form-control" >
                                                         @error('selling_price')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -238,7 +238,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Discount Price <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="text" name="discount_price" class="form-control" >\
+                                                        <input type="text" name="discount_price" class="form-control" >
                                                         @error('discount_price')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -254,7 +254,7 @@
                                                 <div class="form-group">
                                                     <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="product_thumbnail" class="form-control" >\
+                                                        <input type="file" name="product_thumbnail" class="form-control" >
                                                         @error('product_thumbnail')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -265,7 +265,7 @@
                                                 <div class="form-group">
                                                     <h5>Product More Images <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="multi_img[]" class="form-control" >\
+                                                        <input type="file" name="multi_img[]" class="form-control" >
                                                         @error('multi_img[]')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -388,6 +388,7 @@
                         type:"GET",
                         dataType:"json",
                         success:function(data){
+                            $('select[name="subsubcategory_id"]').empty();
                             let d=$('select[name="subcategory_id"]').empty();
                             $.each(data,function(key,value){
                                 $('select[name="subcategory_id"]').append('<option value="'+value.id+'">'+value.subcategory_name_en+'</option>');
@@ -406,6 +407,7 @@
                         type:"GET",
                         dataType:"json",
                         success:function(data){
+
                             let d=$('select[name="subsubcategory_id"]').empty();
                             $.each(data,function(key,value){
                                 $('select[name="subsubcategory_id"]').append('<option value="'+value.id+'">'+value.subsubcategory_name_en+'</option>');
