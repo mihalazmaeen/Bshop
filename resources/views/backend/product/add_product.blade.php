@@ -24,7 +24,7 @@
 
 {{--                                        start 1st row--}}
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <h5>Select Brand <span class="text-danger">*</span></h5>
                                                     <div class="controls">
@@ -42,7 +42,7 @@
                                             </div>
                                             {{--end col-md-4--}}
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h5>Select Category <span class="text-danger">*</span></h5>
                                                         <div class="controls">
@@ -60,7 +60,7 @@
 
                                             </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <h5>Select Sub-Category <span class="text-danger">*</span></h5>
                                                         <div class="controls">
@@ -74,68 +74,284 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Select Sub->Sub-Category <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <select name="subsubcategory_id"  required="" class="form-control" >
+                                                            <option value="" selected="" disabled="">Select Your Sub->Sub-Category</option>
+
+                                                        </select>
+                                                        @error('subsubcategory_id')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </div>
 {{--                                        end 1st row--}}
+{{--                                        start 2nd row--}}
+                                        <div class="row">
 
-                                        <div class="form-group">
-                                            <h5>Email Field <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="email" name="email" class="form-control" required data-validation-required-message="This field is required"> </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product name (En) <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_name_en" class="form-control" >\
+                                                        @error('product_name_en')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product name (Bengali) <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_name_bengali" class="form-control" >\
+                                                        @error('product_name_bengali')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Code <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_code" class="form-control" >\
+                                                        @error('product_code')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Quantity <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_quantity" class="form-control" >\
+                                                        @error('product_quantity')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
+{{--                                        end 2nd row--}}
 
-
-                                        <div class="form-group">
-                                            <h5>File Input Field <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <input type="file" name="file" class="form-control" required> </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-12">
-
-                                        <div class="form-group">
-                                            <h5>Basic Select <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <select name="select" id="select" required class="form-control">
-                                                    <option value="">Select Your City</option>
-                                                    <option value="1">India</option>
-                                                    <option value="2">USA</option>
-                                                    <option value="3">UK</option>
-                                                    <option value="4">Canada</option>
-                                                    <option value="5">Dubai</option>
-                                                </select>
+{{--                                        start 3rd row--}}
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Tangs En <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_tags_en" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >\
+                                                        @error('product_tags_en')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Tangs Bengali <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_tags_bengali" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" placeholder="add  product tags" >\
+                                                        @error('product_tags_bengali')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Size En <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_size_en" class="form-control" value="small,medium,large" data-role="tagsinput" placeholder="add  product size" >\
+                                                        @error('product_size_en')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <h5>Product Size Bengali <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_size_bengali" class="form-control" value="বড়,ছোট,মাঝারি" data-role="tagsinput" placeholder="add product size" >\
+                                                        @error('product_size_bengali')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <h5>Textarea <span class="text-danger">*</span></h5>
-                                            <div class="controls">
-                                                <textarea name="textarea" id="textarea" class="form-control" required placeholder="Textarea text"></textarea>
+
+{{--                                        end 3rd row--}}
+{{--                                        start 4th row--}}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product color English <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_color_en" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >\
+                                                        @error('product_color_en')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product color Bengali <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="product_color_bengali" class="form-control" value="" data-role="tagsinput" placeholder="add product color" >\
+                                                        @error('product_color_bengali')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+{{--                                        end 4th row--}}
+
+{{--                                        start 5th row--}}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product Selling Price <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="selling_price" class="form-control" >\
+                                                        @error('selling_price')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product Discount Price <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="discount_price" class="form-control" >\
+                                                        @error('discount_price')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+{{--                                        end 5th row--}}
+
+{{--                                        start 6th row--}}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="file" name="product_thumbnail" class="form-control" >\
+                                                        @error('product_thumbnail')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Product More Images <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <input type="file" name="multi_img[]" class="form-control" >\
+                                                        @error('multi_img[]')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+{{--                                        end 6th row--}}
+
+{{--                                        start 7th row--}}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Short Description English <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <textarea name="short_description_en" id="textarea" class="form-control" required placeholder="Textarea text"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Short Description Bengali <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <textarea name="short_description_bengali" id="textarea" class="form-control" required placeholder="Textarea text"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+{{--                                        end 7th row--}}
+{{--                                        start 8th row--}}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Long Description English <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <textarea id="editor1"  rows="10" cols="80" name="long_description_en" class="form-control" required placeholder="Textarea text"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5>Long Description Bengali <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <textarea id="editor2"  rows="10" cols="80"  name="long_description_bengali"  class="form-control" required placeholder="Textarea text"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+{{--                                        end 8th row--}}
+
+
+
+
+
+
                                     </div>
+
+
                                 </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <h5>Checkbox <span class="text-danger">*</span></h5>
+
                                             <div class="controls">
-                                                <input type="checkbox" id="checkbox_1" required value="single">
-                                                <label for="checkbox_1">Check this custom checkbox</label>
+                                                <fieldset>
+                                                    <input type="checkbox" name="hot_deals" id="checkbox_2" value="1">
+                                                    <label for="checkbox_2">Hot Deals</label>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <input type="checkbox" name="featured" id="checkbox_3" value="1">
+                                                    <label for="checkbox_3">Featured</label>
+                                                </fieldset>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <h5>Checkbox Group <span class="text-danger">*</span></h5>
+
                                             <div class="controls">
                                                 <fieldset>
-                                                    <input type="checkbox" id="checkbox_2" required value="x">
-                                                    <label for="checkbox_2">I am unchecked Checkbox</label>
+                                                    <input type="checkbox" name="special_offer" id="checkbox_4"  value="1">
+                                                    <label for="checkbox_4">Special Offer</label>
                                                 </fieldset>
                                                 <fieldset>
-                                                    <input type="checkbox" id="checkbox_3" value="y">
-                                                    <label for="checkbox_3">I am unchecked too</label>
+                                                    <input type="checkbox" name="special_deals" id="checkbox_5" value="1">
+                                                    <label for="checkbox_5">Special Deals</label>
                                                 </fieldset>
                                             </div>
                                         </div>
