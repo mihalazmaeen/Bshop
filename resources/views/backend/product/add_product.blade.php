@@ -254,10 +254,11 @@
                                                 <div class="form-group">
                                                     <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="product_thumbnail" class="form-control" >
+                                                        <input type="file" name="product_thumbnail" class="form-control" onChange="mainThumbnailUrl(this)" >
                                                         @error('product_thumbnail')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
+                                                        <img src="" id="mainThumbnail">
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,10 +266,11 @@
                                                 <div class="form-group">
                                                     <h5>Product More Images <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" name="multi_img[]" class="form-control" >
+                                                        <input type="file" name="multi_img[]" class="form-control" id="multiImg" multiple="" >
                                                         @error('multi_img[]')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
+                                                        <div class="row" id="preview_img"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -378,7 +380,7 @@
         <!-- /.content -->
     </div>
     <script type="text/javascript">
-
+{{--load Sub category--}}
         $(document).ready(function(){
             $('select[name="category_id"]').on('change',function(){
                 let category_id=$(this).val();
@@ -399,6 +401,7 @@
                     alert('danger')
                 }
             });
+            //Load Sub-Sub category
             $('select[name="subcategory_id"]').on('change',function(){
                 let subcategory_id=$(this).val();
                 if(subcategory_id){
@@ -419,6 +422,19 @@
                 }
             })
         })
+    </script>
+
+{{--    Show single image--}}
+    <script type="text/javascript">
+        function mainThumbnailUrl(input){
+            if(input.files && input.files[0]){
+                let reader = new FileReader();
+                reader.onload = function(e){
+                    $('#mainThumbnail').attr('src',e.target.result).width(80).height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
 
 
@@ -426,18 +442,36 @@
 
 
 
+    </script>
 
+{{--    Load Multiple Image--}}
+    <script>
 
+        $(document).ready(function(){
+            $('#multiImg').on('change', function(){ //on file input change
+                if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+                {
+                    var data = $(this)[0].files; //this file data
 
+                    $.each(data, function(index, file){ //loop though each file
+                        if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                            var fRead = new FileReader(); //new filereader
+                            fRead.onload = (function(file){ //trigger function on successful read
+                                return function(e) {
+                                    var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(80)
+                                        .height(80); //create image element
+                                    $('#preview_img').append(img); //append image to output element
+                                };
+                            })(file);
+                            fRead.readAsDataURL(file); //URL representing the file's data.
+                        }
+                    });
 
-
-
-
-
-
-
-
-
+                }else{
+                    alert("Your browser doesn't support File API!"); //if File API is absent
+                }
+            });
+        });
 
     </script>
 
