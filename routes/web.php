@@ -97,6 +97,8 @@ Route::prefix('category')->group(function(){Route::get('/view', [CategoryControl
 Route::prefix('product')->group(function(){
     Route::get('/view', [ProductController::class, 'AddProduct'])->name('add-product');
     Route::post('/store', [ProductController::class, 'StoreProduct'])->name('store-product');
+    Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
+    Route::get('/edit/{id}', [ProductController::class, 'EditProduct'])->name('edit-product');
 });
 
 //    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
