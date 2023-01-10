@@ -19,8 +19,9 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" action="{{route('store-product')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('update-product')}}" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{$products->id}}">
                                 <div class="row">
                                     <div class="col-12">
 
@@ -256,32 +257,7 @@
                                         {{--                                        end 5th row--}}
 
                                         {{--                                        start 6th row--}}
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <h5>Product Main Thumbnail <span class="text-danger">*</span></h5>
-                                                    <div class="controls">
-                                                        <input type="file" name="product_thumbnail" class="form-control" onChange="mainThumbnailUrl(this)" required=""  >
-                                                        @error('product_thumbnail')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                        <img src="" id="mainThumbnail">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <h5>Product More Images <span class="text-danger">*</span></h5>
-                                                    <div class="controls">
-                                                        <input type="file" name="multi_img[]" class="form-control" id="multiImg" multiple="" required=""  >
-                                                        @error('multi_img[]')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                        <div class="row" id="preview_img"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         {{--                                        end 6th row--}}
 
                                         {{--                                        start 7th row--}}
@@ -378,7 +354,7 @@
 
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Product">
+                                    <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Edit Product">
                                 </div>
                             </form>
 
