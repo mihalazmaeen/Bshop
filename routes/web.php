@@ -96,6 +96,7 @@ Route::prefix('category')->group(function(){Route::get('/view', [CategoryControl
 //Admin all categories
 Route::prefix('product')->group(function(){
     Route::get('/view', [ProductController::class, 'AddProduct'])->name('add-product');
+    Route::post('/store', [ProductController::class, 'StoreProduct'])->name('store-product');
 });
 
 //    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
