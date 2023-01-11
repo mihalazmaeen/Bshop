@@ -438,7 +438,7 @@
                             <img class="card-img-top" src="{{asset($img->photo_name)}}" style="height: 130px; width: 260px ">
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="" class="btn btn-sm btn-danger" id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('product-multiple-image-delete',$img->id)}}" class="btn btn-sm btn-danger" id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                 </h5>
                                 <p class="card-text">
                                     <div class="form-group">
