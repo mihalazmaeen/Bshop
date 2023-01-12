@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
@@ -109,7 +110,13 @@ Route::prefix('product')->group(function(){
 
 
 });
+//Front End Slider
+Route::prefix('slider')->group(function(){
+    Route::get('/view', [SliderController::class, 'SliderView'])->name('manage-slider');
+//    Route::post('/store', [BrandController::class, 'BrandStore'])->name('brand.store');
+//    Route::get('/edit/{id}', [BrandController::class, 'BrandEdit'])->name('brand.edit');
+//    Route::post('/update', [BrandController::class, 'BrandUpdate'])->name('brand.update');
+//    Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
+});
 
-//    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
-//    Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
-//    Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
+
