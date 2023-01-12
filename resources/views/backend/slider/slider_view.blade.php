@@ -56,10 +56,10 @@
                                                 <a href="{{route('slider.edit',$item->id)}}" class="btn btn-info btn-sm" title="Edit Slider"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{route('slider.delete',$item->id)}}" id="delete" class="btn btn-danger btn-sm" title="Delete Brand"><i class="fa fa-trash"></i></a>
                                                 @if ($item->status==1)
-                                                    <a href="{{route('inactive-product',$item->id)}}" class="btn btn-danger btn-sm" title="Make Inactive"><i class="fa fa-arrow-down"></i></a>
+                                                    <a href="{{route('inactive-slider',$item->id)}}" class="btn btn-danger btn-sm" title="Make Inactive"><i class="fa fa-arrow-down"></i></a>
 
                                                 @else
-                                                    <a href="{{route('active-product',$item->id)}}" class="btn btn-success btn-sm" title="Make Active"><i class="fa fa-arrow-up"></i></a>
+                                                    <a href="{{route('active-slider',$item->id)}}" class="btn btn-success btn-sm" title="Make Active"><i class="fa fa-arrow-up"></i></a>
                                                 @endif
                                             </td>
 
