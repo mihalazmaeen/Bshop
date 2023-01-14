@@ -1,5 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
+    @section('title')
+        {{$product->product_name_en}} Product Details
+    @endsection
 
     <div class="breadcrumb">
         <div class="container">
@@ -415,7 +418,9 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">Floral Print Buttoned</h1>
+                                    <h1 class="name">
+                                        @if(session()->get('language')=='bengali') {{$product->product_name_bengali}} @else {{$product->product_name_en}} @endif
+                                    </h1>
 
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
@@ -446,7 +451,7 @@
                                     </div><!-- /.stock-container -->
 
                                     <div class="description-container m-t-20">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        @if(session()->get('language')=='bengali') {{$product->short_description_bengali}} @else {{$product->short_description_en}} @endif
                                     </div><!-- /.description-container -->
 
                                     <div class="price-container info-container m-t-20">
@@ -455,8 +460,12 @@
 
                                             <div class="col-sm-6">
                                                 <div class="price-box">
-                                                    <span class="price">$800.00</span>
-                                                    <span class="price-strike">$900.00</span>
+                                                    @if($product->discount_price==NULL)
+                                                    <span class="price">BDT {{$product->selling_price}}</span>
+                                                    @else
+                                                    <span class="price">BDT {{$product->discount_price}}</span>
+                                                        <span class="price-strike">BDT {{$product->selling_price}}</span>
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -529,7 +538,9 @@
 
                                     <div id="description" class="tab-pane in active">
                                         <div class="product-tab">
-                                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            <p class="text">
+                                                @if(session()->get('language')=='bengali') {!!  $product->long_description_bengali !!} @else {!! $product->long_description_en !!} @endif
+                                            </p>
                                         </div>
                                     </div><!-- /.tab-pane -->
 
