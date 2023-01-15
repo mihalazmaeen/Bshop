@@ -129,4 +129,5 @@ Route::get('/language/bengali', [LanguageController::class, 'ChangetoBengali'])-
 //FrontEnd Products Details
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::get('/product/tag/{tag}/', [IndexController::class, 'TagWiseProduct']);
 
