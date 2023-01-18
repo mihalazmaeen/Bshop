@@ -30,7 +30,7 @@
                                         @endphp
                                         @foreach($subsubcategories as $subsubcat)
                                             <ul class="links list-unstyled">
-                                                <li><a href="#">
+                                                <li><a href="{{url('subsubcategory/product/'.$subsubcat->id.'/' .$subsubcat->subsubcategory_slug_en)}}">
                                                         @if(session()->get('language')=='bengali') {{$subsubcat->subsubcategory_name_bengali}} @else {{$subsubcat->subsubcategory_name_en}} @endif
                                                     </a></li>
 
