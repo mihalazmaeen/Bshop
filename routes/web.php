@@ -133,5 +133,8 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDeta
 
 Route::get('/category/get-sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
 Route::get('/product/tag/{tag}/', [IndexController::class, 'TagWiseProduct']);
+//frontend subcategorywise data
+Route::get('/subcategory/product/{subcategory}/{slug}', [IndexController::class, 'SubCatWiseProduct']);
+
 
 
