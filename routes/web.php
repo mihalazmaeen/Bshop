@@ -130,7 +130,8 @@ Route::get('/language/bengali', [LanguageController::class, 'ChangetoBengali'])-
 //FrontEnd Products Details
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
-Route::get('/product/tag/{tag}/', [IndexController::class, 'TagWiseProduct']);
+
 Route::get('/category/get-sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
+Route::get('/product/tag/{tag}/', [IndexController::class, 'TagWiseProduct']);
 
 
