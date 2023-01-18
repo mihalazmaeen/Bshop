@@ -270,7 +270,7 @@ Tagwise Product
                                                     @endphp
                                                     <!-- /.image -->
 
-                                                    <div class="tag new">
+                                                    <div >
                                                         @if($product->discount_price==NULL)
                                                             <div class="tag new"><span>New</span></div>
                                                         @else
@@ -354,7 +354,9 @@ Tagwise Product
                                                             <div class="product-price"><span class="price">BDT {{$product->discount_price}}</span> <span class="price-before-discount">BDT {{$product->selling_price}}</span> </div>
                                                         @endif
                                                         <!-- /.product-price -->
-                                                        <div class="description m-t-10">Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget, lacinia id purus. Suspendisse posuere arcu diam, id accumsan eros pharetra ac. Nulla enim risus, facilisis bibendum gravida eget.</div>
+                                                        <div class="description m-t-10">
+                                                            @if(session()->get('language')=='bengali') {{$product->short_description_bengali}} @else {{$product->short_description_en}} @endif
+                                                            </div>
                                                         <div class="cart clearfix animate-effect">
                                                             <div class="action">
                                                                 <ul class="list-unstyled">
@@ -376,7 +378,13 @@ Tagwise Product
                                                 <!-- /.col -->
                                             </div>
                                             <!-- /.product-list-row -->
-                                            <div class="tag new"><span>new</span></div>
+                                            <div >
+                                                @if($product->discount_price==NULL)
+                                                    <div class="tag new"><span>New</span></div>
+                                                @else
+                                                    <div class="tag hot"><span>{{round($discount)}}%</span></div>
+                                                @endif
+                                            </div>
                                         </div>
                                         <!-- /.product-list -->
                                     </div>
