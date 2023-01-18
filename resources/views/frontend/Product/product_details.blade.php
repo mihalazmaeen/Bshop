@@ -396,7 +396,54 @@
 
                                         </div><!-- /.row -->
                                     </div><!-- /.price-container -->
+                                {{--Add color and size Option--}}
 
+                                    <div class="row">
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="info-title control-label">Choose color <span>*</span></label>
+                                                <select class="form-control unicase-form-control selectpicker" style="display: none;">
+                                                    <option selected="" disabled="">--Select options--</option>
+                                                    @if(session()->get('language')=='bengali')
+                                                        @foreach($product_color_bengali as $color_bengali)
+                                                    <option value="{{$color_bengali}}">{{$color_bengali}}</option>
+                                                        @endforeach
+                                                    @else
+                                                        @foreach($product_color_en as $color_en)
+                                                            <option value="{{$color_en}}">{{$color_en}}</option>
+                                                        @endforeach
+                                                    @endif
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="info-title control-label">Choose size <span>*</span></label>
+                                                <select class="form-control unicase-form-control selectpicker" style="display: none;">
+                                                    <option selected="" disabled="">--Select options--</option>
+                                                    @if(session()->get('language')=='bengali')
+                                                        @foreach($product_size_bengali as $size_bengali)
+                                                            <option value="{{$size_bengali}}">{{$size_bengali}}</option>
+                                                        @endforeach
+                                                    @else
+                                                        @foreach($product_size_en as $size_en)
+                                                            <option value="{{$size_en}}">{{$size_en}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div><!-- /.row -->
+
+
+
+
+{{--                                    Add Color and size option--}}
                                     <div class="quantity-container info-container">
                                         <div class="row">
 
