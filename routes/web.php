@@ -73,7 +73,8 @@ Route::prefix('brand')->group(function(){
     Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
 });
 //Admin all categories
-Route::prefix('category')->group(function(){Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
+Route::prefix('category')->group(function(){
+    Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
 
    Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
    Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
@@ -91,7 +92,7 @@ Route::prefix('category')->group(function(){Route::get('/view', [CategoryControl
 //    All Sub Sub-Category
     Route::get('/sub/subcategory/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
     Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']);
-    Route::get('/sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
+
     Route::post('/sub/subcategory/store', [SubCategoryController::class, 'SubSubCategoryStore'])->name('subsubcategory.store');
     Route::get('/sub/subcategory/edit/{id}', [SubCategoryController::class, 'SubSubCategoryEdit'])->name('subsubcategory.edit');
     Route::post('/sub/subcategory/update', [SubCategoryController::class, 'SubSubCategoryUpdate'])->name('subsubcategory.update');
@@ -130,4 +131,6 @@ Route::get('/language/bengali', [LanguageController::class, 'ChangetoBengali'])-
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 Route::get('/product/tag/{tag}/', [IndexController::class, 'TagWiseProduct']);
+Route::get('/category/get-sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
+
 
