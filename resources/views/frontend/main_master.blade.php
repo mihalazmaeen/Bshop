@@ -108,11 +108,14 @@
                     </div>
                     <div class="col-md-4">
                         <ul class="list-group">
-                            <li class="list-group-item">Product Price:<strong id="price"></strong></li>
+                            <li class="list-group-item">Product Price:<strong class="text-danger">BDT <span id="pprice"></span></strong>
+                            <del id="oldprice"></del></li>
                             <li class="list-group-item">Product Code:<strong id="product_code"></strong></li>
                             <li class="list-group-item">Category:<strong id="product_category"></strong></li>
                             <li class="list-group-item">Brand:<strong id="product_brand"></strong></li>
-                            <li class="list-group-item">Stock:<strong id="product_stock"></strong></li>
+                            <li class="list-group-item">Stock: <span class="badge badge-pill badge-success" id="available" style="background: green; color: white;"></span>
+                                <span class="badge badge-pill badge-danger" id="stockout" style="background: red; color: white;"></span>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -174,6 +177,25 @@ function productView(id){
             $('#product_brand').text(data.product.brand.brand_name_en);
             $('#product_image').attr('src','/'+data.product.product_thumbnail);
 
+        //    price
+            if(data.product.discount_price == null) {
+                $('#pprice').text('');
+                $('#oldprice').text('');
+                $('#pprice').text(data.product.selling_price);
+            }else{
+                $('#pprice').text(data.product.discount_price);
+                $('#oldprice').text(data.product.selling_price);
+            }
+        //    stock available option
+            if(data.product.product_quantity > 0){
+                $('#stockout').text('');
+                $('#available').text('');
+                $('#available').text('available')
+            }else{
+                $('#stockout').text('');
+                $('#available').text('');
+                $('#stockout').text('Out of Stock')
+            }
         //    color
             $('select[name="color"]').empty();
             $.each(data.color,function (key,value){
