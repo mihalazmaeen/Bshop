@@ -119,25 +119,19 @@
 {{--                        Color Selection--}}
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Choose Color</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="exampleFormControlSelect1" name="color">
+
+
                             </select>
                         </div>
 {{--                        end color selection--}}
 
 {{--                        Size selection--}}
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Choose Color</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                        <div class="form-group" id="sizeArea">
+                            <label for="exampleFormControlSelect1">Choose Size</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="size">
                                 <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+
                             </select>
                         </div>
 {{--                        end size selection--}}
@@ -179,6 +173,22 @@ function productView(id){
             $('#product_category').text(data.product.category.category_name_en);
             $('#product_brand').text(data.product.brand.brand_name_en);
             $('#product_image').attr('src','/'+data.product.product_thumbnail);
+
+        //    color
+            $('select[name="color"]').empty();
+            $.each(data.color,function (key,value){
+                $('select[name="color"]').append(' <option value=" '+value+' " >'+value+'</option> ')
+            })
+        //    Size
+            $('select[name="size"]').empty();
+            $.each(data.size,function (key,value){
+                $('select[name="size"]').append(' <option value=" '+value+' " >'+value+'</option> ')
+                if(data.size == ""){
+                    $('#sizeArea').hide();
+                }else{
+                    $('#sizeArea').show();
+                }
+            })
         }
     })
 }
