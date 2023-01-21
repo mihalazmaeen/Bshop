@@ -93,7 +93,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Product Name</h5>
+                <h5 class="modal-title" id="exampleModalLabel"><span id="product_name"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -102,17 +102,17 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="..." style="width: 200px; height: 200px">
+                            <img src="..." class="card-img-top" alt="..." id="product_image" style="width: 200px; height: 200px">
 
                         </div>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-group">
-                            <li class="list-group-item">Product Price</li>
-                            <li class="list-group-item">Product Code</li>
-                            <li class="list-group-item">Category</li>
-                            <li class="list-group-item">Brand</li>
-                            <li class="list-group-item">Stock</li>
+                            <li class="list-group-item">Product Price:<strong id="price"></strong></li>
+                            <li class="list-group-item">Product Code:<strong id="product_code"></strong></li>
+                            <li class="list-group-item">Category:<strong id="product_category"></strong></li>
+                            <li class="list-group-item">Brand:<strong id="product_brand"></strong></li>
+                            <li class="list-group-item">Stock:<strong id="product_stock"></strong></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -170,10 +170,15 @@ $.ajaxSetup({
 function productView(id){
     $.ajax({
         type:'get',
-        url:'/product/view/modal/'+'id',
+        url:'/product/view/modal/'+id,
         dataType: 'json',
         success:function (data){
-
+            $('#product_name').text(data.product.product_name_en);
+            $('#price').text(data.product.selling_price);
+            $('#product_code').text(data.product.product_code);
+            $('#product_category').text(data.product.category.category_name_en);
+            $('#product_brand').text(data.product.brand.brand_name_en);
+            $('#product_image').attr('src','/'+data.product.product_thumbnail);
         }
     })
 }
