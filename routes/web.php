@@ -138,5 +138,6 @@ Route::get('/subcategory/product/{subcategory}/{slug}', [IndexController::class,
 //frontend subsubcategorywise data
 Route::get('/subsubcategory/product/{subsubcategory}/{slug}', [IndexController::class, 'SubSubCatWiseProduct']);
 
-
+//product add to cart modal with product details
+Route::get('/product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);
 
