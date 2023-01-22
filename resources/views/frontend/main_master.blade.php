@@ -94,7 +94,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"><span id="product_name"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" id="closeModal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -122,7 +122,7 @@
 {{--                        Color Selection--}}
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Choose Color</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="color">
+                            <select class="form-control" id="color" name="color">
 
 
                             </select>
@@ -132,7 +132,7 @@
 {{--                        Size selection--}}
                         <div class="form-group" id="sizeArea">
                             <label for="exampleFormControlSelect1">Choose Size</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="size">
+                            <select class="form-control" id="size" name="size">
                                 <option>1</option>
 
                             </select>
@@ -141,10 +141,11 @@
 {{--                        quantity select--}}
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Enter Quantity</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" min="1">
+                            <input type="number" class="form-control" id="qty" min="1">
                         </div>
 {{--                        end quantity select--}}
-                        <button type="submit" class="btn btn-primary mb-2">Add to Cart</button>
+                        <input type="hidden" class="form-control" id="product_id">
+                        <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add to Cart</button>
                     </div>
 
 
@@ -176,6 +177,9 @@ function productView(id){
             $('#product_category').text(data.product.category.category_name_en);
             $('#product_brand').text(data.product.brand.brand_name_en);
             $('#product_image').attr('src','/'+data.product.product_thumbnail);
+
+            $('#product_id').val(id);
+            $('#qty').val(1);
 
         //    price
             if(data.product.discount_price == null) {
@@ -214,6 +218,36 @@ function productView(id){
         }
     })
 }
+//End showing cart data
+
+
+//Add to cart functionality
+function addToCart(){
+    let product_name=$('#product_name').text();
+    let id=$('#product_id').val();
+    let color=$('#color option:selected').text();
+    let size=$('#size option:selected').text();
+    let quantity=$('#qty').val();
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: {
+            color: color,size: size,quantity: quantity,product_name:product_name,
+        },
+        url:"/cart/data/store/"+id,
+        success: function(data) {
+            $('#closeModal').click();
+            console.log(data);
+        }
+    })
+
+
+}
+
+
+
+
+//end add to cart functionality
 
 </script>
 {{--End Add to card Modal--}}
