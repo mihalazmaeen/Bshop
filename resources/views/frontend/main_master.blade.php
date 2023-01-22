@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}} ">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}} ">
 
+
+
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
 
@@ -64,6 +66,7 @@
 <script src="{{asset('frontend/assets/js/bootstrap-select.min.js')}} "></script>
 <script src="{{asset('frontend/assets/js/wow.min.js')}} "></script>
 <script src="{{asset('frontend/assets/js/scripts.js')}} "></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -237,7 +240,31 @@ function addToCart(){
         url:"/cart/data/store/"+id,
         success: function(data) {
             $('#closeModal').click();
-            console.log(data);
+
+        //    Start Alert Message
+        const Toast=Swal.mixin({
+            toast:true,
+            position:'top-end',
+            icon:'success',
+            showConfirmButton:false,
+            timer:3000
+        })
+            if($.isEmptyObject(data.error)){
+                Toast.fire({
+                    type:'success',
+                    title:data.success
+                })
+            }else{
+                Toast.fire({
+                    type:'error',
+                    title:data.error
+                })
+            }
+
+
+
+
+        //    end alert message
         }
     })
 
