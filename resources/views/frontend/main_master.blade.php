@@ -396,10 +396,86 @@ $.ajax({
 
     }
 </script>
-
-
-
-
 {{--End add to wishlist function--}}
+{{--Wishlist data fetch--}}
+<script type="text/javascript">
+    function wishlist(){
+        $.ajax({
+            type: "GET",
+            url:'/get-wishlist-product',
+            dataType: "json",
+            success: function(response){
+                let rows="";
+                $.each(response,function(key,value){
+
+
+
+                    rows += `   <tr>
+                                    <td class="col-md-2"><img src="/${value.product.product_thumbnail}" alt="imga"></td>
+                                    <td class="col-md-7">
+                                        <div class="product-name"><a href="#">${value.product.product_name_en}</a></div>
+
+                                        <div class="price">
+                                           ${value.product.discount_price==null ? `${value.product.selling_price}`: `${value.product.discount_price} <span>${value.product.selling_price}</span>`}
+                                        </div>
+                                    </td>
+                                    <td class="col-md-2">
+                                         <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary icon" type="button" title="Add Cart" id="${value.product_id}" onclick="productView(this.id)"> Add To Cart </button>
+                                    </td>
+                                    <td class="col-md-1 close-btn">
+                                        <button type="submit" id="${value.id}" onclick="WishlistRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>`
+                });
+                $('#wishlist').html(rows);
+
+
+
+            }
+        })
+
+    }
+    wishlist();
+
+    function WishlistRemove(id){
+        $.ajax({
+            type:'GET',
+            url: '/wishlist-remove/'+id,
+            dataType:'json',
+            success: function(data){
+                wishlist();
+                //    Start Alert Message
+                const Toast=Swal.mixin({
+                    toast:true,
+                    position:'top-end',
+
+                    showConfirmButton:false,
+                    timer:3000
+                })
+                if($.isEmptyObject(data.error)){
+                    Toast.fire({
+                        type:'success',
+                        icon:'success',
+                        title:data.success
+                    })
+                }else{
+                    Toast.fire({
+                        type:'error',
+                        icon:'error',
+                        title:data.error
+                    })
+                }
+
+
+
+
+                //    end alert message
+            }
+        })
+    }
+</script>
+
+
+{{--end wishlist data fetch--}}
 </body>
 </html>
