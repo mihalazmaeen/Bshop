@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -172,3 +173,10 @@ Route::get('/cart-increment/{id}', [CartPageController::class, 'CartIncrement'])
 //Cart Quantity Decrement
 Route::get('/cart-decrement/{id}', [CartPageController::class, 'CartDecrement']);
 
+//Admin all categories
+Route::prefix('coupon')->group(function(){
+    Route::get('/view', [CouponController::class, 'CouponView'])->name('manage-coupon');
+
+
+
+});
