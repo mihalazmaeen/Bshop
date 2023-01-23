@@ -355,10 +355,51 @@ function miniCartremove(rowId){
         }
     })
 }
+</script>
+{{--Add to wishlist function--}}
+<script type="text/javascript">
+
+    function addToWishlist(product_id) {
+$.ajax({
+    type: "POST",
+    dataType: "JSON",
+    url:"/add-to-wishlist/"+product_id,
+    success: function(data) {
+        //    Start Alert Message
+        const Toast=Swal.mixin({
+            toast:true,
+            position:'top-end',
+
+            showConfirmButton:false,
+            timer:3000
+        })
+        if($.isEmptyObject(data.error)){
+            Toast.fire({
+                icon:'success',
+                type:'success',
+                title:data.success
+            })
+        }else{
+            Toast.fire({
+                icon:'error',
+                type:'error',
+                title:data.error
+            })
+        }
 
 
 
+
+        //    end alert message
+    }
+})
+
+    }
 </script>
 
+
+
+
+{{--End add to wishlist function--}}
 </body>
 </html>
