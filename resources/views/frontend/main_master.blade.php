@@ -521,7 +521,7 @@ $.ajax({
                                     </td>
 
                                     <td class="col-md-1 close-btn">
-                                        <button type="submit" id="${value.id}" onclick="WishlistRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
+                                        <button type="submit" id="${value.rowId}" onclick="cartRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
                                     </td>
                                 </tr>`
                 });
@@ -535,13 +535,14 @@ $.ajax({
     }
     cart();
 
-    function WishlistRemove(id){
+    function cartRemove(id){
         $.ajax({
             type:'GET',
-            url: '/user/wishlist-remove/'+id,
+            url: '/user/cart-remove/'+id,
             dataType:'json',
             success: function(data){
-                wishlist();
+                cart();
+                miniCart();
                 //    Start Alert Message
                 const Toast=Swal.mixin({
                     toast:true,
