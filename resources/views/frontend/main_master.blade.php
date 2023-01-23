@@ -492,14 +492,32 @@ $.ajax({
 
 
 
-                    rows += `   <tr>
-                                    <td class="col-md-2"><img src="/${value.options.image}" alt="imga"></td>
-                                    <td class="col-md-7">
+                    rows += `   <tr style="justify-content: center">
+                                    <td class="col-md-2" ><img src="/${value.options.image}" alt="imga"style="height: 60px; width: 60px;" ></td>
+                                    <td class="col-md-2">
                                         <div class="product-name"><a href="#">${value.name}</a></div>
 
                                         <div class="price">
                                        ${value.price}
                                         </div>
+                                    </td>
+                                 <td class="col-md-2 text-center">
+                                        <strong>${value.options.color}</strong>
+                                    </td>
+                                   <td class="col-md-2 text-center" style="justify-content: center">
+                                    ${value.options.size==null
+                                    ? `<span>Not Applicable</span>`
+                                   : `<strong>${value.options.size}</strong>`}
+
+                                    </td>
+                                  <td class="col-md-2 text-center">
+                                       <button type="submit" class="btn btn-success btn-sm">+</button>
+                                        <input type="text" value="${value.qty}" min="1" max="100" disabled="" style="width:25px">
+                                       <button type="submit" class="btn btn-danger btn-sm">-
+                                        </button>
+                                    </td>
+                                    <td class="col-md-2 text-center" >
+                                        <strong>${value.subtotal}</strong>
                                     </td>
 
                                     <td class="col-md-1 close-btn">
