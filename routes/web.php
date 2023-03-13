@@ -190,4 +190,19 @@ Route::prefix('shipping')->group(function (){
     Route::get('/division/edit/{id}', [ShippingController::class, 'DivisionEdit'])->name('division.edit');
     Route::post('/division/update/{id}', [ShippingController::class, 'DivisionUpdate'])->name('division.update');
     Route::get('/division/delete/{id}', [ShippingController::class, 'DivisionDelete'])->name('division.delete');
+
+//    Districts Route
+    Route::get('/district/view',[ShippingController::class, 'DistrictView'])->name('manage-district');
+    Route::post('/district/store', [ShippingController::class, 'DistrictStore'])->name('district.store');
+    Route::get('/district/edit/{id}', [ShippingController::class, 'DistrictEdit'])->name('district.edit');
+    Route::post('/district/update/{id}', [ShippingController::class, 'DistrictUpdate'])->name('district.update');
+    Route::get('/district/delete/{id}', [ShippingController::class, 'DistrictDelete'])->name('district.delete');
+//    States Route
+    Route::get('/state/view',[ShippingController::class, 'StateView'])->name('manage-state');
+    Route::post('/state/store', [ShippingController::class, 'StateStore'])->name('state.store');
+    Route::get('/state/edit/{id}', [ShippingController::class, 'StateEdit'])->name('state.edit');
+    Route::post('/state/update/{id}', [ShippingController::class, 'StateUpdate'])->name('state.update');
+    Route::get('/state/delete/{id}', [ShippingController::class, 'StateDelete'])->name('state.delete');
+
 });
+Route::get('/get-district/ajax/{division_id}', [ShippingController::class, 'GetDistrict']);

@@ -112,6 +112,8 @@ $route=Route::current()->getName();
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{($route=='manage-division')?'active':''}}"><a href="{{route('manage-division')}}"><i class="ti-more"></i>Shipping Divisions</a></li>
+                    <li class="{{($route=='manage-district')?'active':''}}"><a href="{{route('manage-district')}}"><i class="ti-more"></i>Shipping Districts</a></li>
+                    <li class="{{($route=='manage-state')?'active':''}}"><a href="{{route('manage-state')}}"><i class="ti-more"></i>Shipping States</a></li>
 
 
                 </ul>
