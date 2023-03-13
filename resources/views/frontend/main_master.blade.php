@@ -358,7 +358,6 @@ function miniCartremove(rowId){
 </script>
 {{--Add to wishlist function--}}
 <script type="text/javascript">
-
     function addToWishlist(product_id) {
 $.ajax({
     type: "POST",
