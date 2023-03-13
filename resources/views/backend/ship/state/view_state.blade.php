@@ -31,15 +31,16 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($districts as $item)
+                                    @foreach($states as $item)
                                         <tr>
                                             <td>{{$item->division->division_name}}</td>
-                                            <td>{{$item->district_name}}</td>
+                                            <td>{{$item->district->district_name}}</td>
+                                            <td>{{$item->state_name}}</td>
 
 
                                             <td width="30%">
-                                                <a href="{{route('district.edit',$item->id)}}" class="btn btn-info" title="Edit District"><i class="fa fa-pencil"></i></a>
-                                                <a href="{{route('district.delete',$item->id)}}" id="delete" class="btn btn-danger" title="Delete District"><i class="fa fa-trash"></i></a>
+                                                <a href="{{route('state.edit',$item->id)}}" class="btn btn-info" title="Edit State"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{route('state.delete',$item->id)}}" id="delete" class="btn btn-danger" title="Delete State"><i class="fa fa-trash"></i></a>
                                             </td>
 
                                         </tr>

@@ -108,23 +108,25 @@ class ShippingController extends Controller
 //    State Functions
     public function StateView(){
         $divisions=ShipDivision::orderBy('division_name', 'asc')->get();
-        $districts=ShipDistrict::with('division')->orderBy('id', 'desc')->get();
-        $states=ShipState::orderBy('id', 'asc')->get();
-        return view('backend.ship.state.view_state',compact('divisions','districts',$states));
+        $districts=ShipDistrict::orderBy('id', 'desc')->get();
+        $states=ShipState::with('division','district')->orderBy('id', 'asc')->get();
+        return view('backend.ship.state.view_state',compact('divisions','districts','states'));
     }
     public function StateStore(Request $request)
     {
         $request->validate([
             'division_id'=>'required',
-            'district_name'=>'required',
+            'district_id'=>'required',
+            'state_name'=>'required',
         ]);
-        ShipDistrict::insert([
+        ShipState::insert([
             'division_id'=>$request->division_id,
-            'district_name'=>$request->district_name,
+            'district_id'=>$request->district_id,
+            'state_name'=>$request->state_name,
             'created_at'=>Carbon::now(),
         ]);
         $notification = array(
-            'message'=>'District added successfully',
+            'message'=>'State added successfully',
             'alert-type'=>'success',
         );
         return redirect()->back()->with($notification);
@@ -132,33 +134,34 @@ class ShippingController extends Controller
     }
     public function StateEdit($id){
         $divisions=ShipDivision::orderBy('division_name', 'asc')->get();
-        $districts=ShipDistrict::findOrFail($id);
-        return view('backend.ship.district.edit_district',compact('districts','divisions'));
+        $districts=ShipDistrict::orderBy('district_name', 'asc')->get();
+        $states=ShipState::findOrFail($id);
+        return view('backend.ship.state.edit_state',compact('districts','divisions','states'));
     }
     public function StateUpdate(Request $request,$id){
-        ShipDistrict::findOrFail($id)->update([
+        ShipState::findOrFail($id)->update([
             'division_id'=>$request->division_id,
-            'district_name'=>$request->district_name ,
+            'district_id'=>$request->district_id,
+            'state_name'=>$request->state_name ,
             'created_at'=>Carbon::now(),
 
         ]);
         $notification=array(
-            'message'=>'District Edited Successfully',
+            'message'=>'State Edited Successfully',
             'alert-type'=>'success'
         );
-        return redirect()->route('manage-district')->with($notification);
+        return redirect()->route('manage-state')->with($notification);
     }
     public function StateDelete($id){
-        ShipDistrict::findOrFail($id)->delete();
+        ShipState::findOrFail($id)->delete();
         $notification=array(
-            'message'=>'District Deleted Successfully',
+            'message'=>'State Deleted Successfully',
             'alert-type'=>'success'
         );
-        return redirect()->route('manage-district')->with($notification);
+        return redirect()->route('manage-state')->with($notification);
     }
     public function GetDistrict($division_id){
         $districtid=ShipDistrict::where('division_id',$division_id)->orderBy('district_name','ASC')->get();
-  
         return json_encode($districtid);
     }
 }
