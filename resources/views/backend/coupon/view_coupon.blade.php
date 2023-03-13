@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">All Category</h3>
+                            <h3 class="box-title">All Coupon</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
