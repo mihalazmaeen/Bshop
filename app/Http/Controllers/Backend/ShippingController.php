@@ -164,4 +164,9 @@ class ShippingController extends Controller
         $districtid=ShipDistrict::where('division_id',$division_id)->orderBy('district_name','ASC')->get();
         return json_encode($districtid);
     }
+        public function GetState($district_id){
+//        $stateid=ShipState::where('district_id',$district_id)->orderBy('state_name','ASC')->get();
+
+        return json_encode($district_id);
+    }
 }

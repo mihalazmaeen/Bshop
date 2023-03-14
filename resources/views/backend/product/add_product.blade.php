@@ -412,7 +412,7 @@
                         type:"GET",
                         dataType:"json",
                         success:function(data){
-console.log(data);
+                            console.log(data);
                             let d=$('select[name="subsubcategory_id"]').empty();
                             $.each(data,function(key,value){
                                 $('select[name="subsubcategory_id"]').append('<option value="'+value.id+'">'+value.subsubcategory_name_en+'</option>');

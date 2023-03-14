@@ -1,5 +1,6 @@
 @extends('frontend.main_master')
 @section('content')
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     @section('title')
         My Cart Page
     @endsection
@@ -34,49 +35,81 @@
                                         <div class="row">
 
                                             <!-- guest-login -->
-                                            <div class="col-md-6 col-sm-6 guest-login">
-                                                <h4 class="checkout-subtitle">Guest or Register Login</h4>
-                                                <p class="text title-tag-line">Register with us for future convenience:</p>
-
-                                                <!-- radio-form  -->
+                                            <div class="col-md-6 col-sm-6 already-registered-login">
+                                                <h4 class="checkout-subtitle">Shipping Address</h4>
                                                 <form class="register-form" role="form">
-                                                    <div class="radio radio-checkout-unicase">
-                                                        <input id="guest" type="radio" name="text" value="guest" checked>
-                                                        <label class="radio-button guest-check" for="guest">Checkout as Guest</label>
-                                                        <br>
-                                                        <input id="register" type="radio" name="text" value="register">
-                                                        <label class="radio-button" for="register">Register</label>
+                                                    <div class="form-group">
+                                                        <label class="info-title" for="exampleInputEmail1">Name<span>*</span></label>
+                                                        <input type="text" name="shipping_name" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="{{Auth::user()->name}}" required>
                                                     </div>
-                                                </form>
-                                                <!-- radio-form  -->
+                                                    <div class="form-group">
+                                                        <label class="info-title" for="exampleInputEmail1">Email<span>*</span></label>
+                                                        <input type="email" name="shipping_email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="{{Auth::user()->email}}" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="info-title" for="exampleInputEmail1">Phone<span>*</span></label>
+                                                        <input type="text" name="shipping_phone" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="{{Auth::user()->phone}}" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="info-title" for="exampleInputEmail1">Post Code<span>*</span></label>
+                                                        <input type="text" name="post_code" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="Enter Post Code" value="" required>
+                                                    </div>
 
-                                                <h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
-                                                <p class="text title-tag-line ">Register with us for future convenience:</p>
 
-                                                <ul class="text instruction inner-bottom-30">
-                                                    <li class="save-time-reg">- Fast and easy check out</li>
-                                                    <li>- Easy access to your order history and status</li>
-                                                </ul>
 
-                                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button>
+
                                             </div>
                                             <!-- guest-login -->
 
                                             <!-- already-registered-login -->
                                             <div class="col-md-6 col-sm-6 already-registered-login">
-                                                <h4 class="checkout-subtitle">Already registered?</h4>
-                                                <p class="text title-tag-line">Please log in below:</p>
-                                                <form class="register-form" role="form">
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-                                                        <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="">
+
+
+                                                <div class="form-group">
+                                                    <h5>Select Division <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <select name="division_id"  required="" class="form-control" >
+                                                            <option value="" selected="" disabled="">Select Division</option>
+                                                            @foreach($divisions as $division)
+                                                                <option value="{{$division->id}}">{{$division->division_name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('division_id')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
-                                                        <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="">
-                                                        <a href="#" class="forgot-password">Forgot your Password?</a>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5>Select District <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <select name="district_id"  required="" class="form-control" >
+                                                            <option value="" selected="" disabled="">Select District</option>
+
+                                                        </select>
+                                                        @error('district_id')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
                                                     </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5>Select State <span class="text-danger">*</span></h5>
+                                                    <div class="controls">
+                                                        <select name="state_id"  required="" class="form-control" >
+                                                            <option value="" selected="" disabled="">Select State</option>
+
+                                                        </select>
+                                                        @error('state_id')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="info-title" for="exampleInputEmail1">Notes<span>*</span></label>
+                                                    <textarea cols="30" rows="5" name="notes" class="form-control unicase-form-control text-input"  placeholder="Enter Notes" required></textarea>
+                                                </div>
+
                                                     <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+
                                                 </form>
                                             </div>
                                             <!-- already-registered-login -->
@@ -142,5 +175,52 @@
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
             ============================================== -->	</div><!-- /.container -->
     </div><!-- /.body-content -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select[name="district_id"]').on('change',function(){
+                let district_id=$(this).val();
+                if(district_id){
+                    $.ajax({
+                        url:"{{url('/get-state/ajax')}}/" + district_id,
+                        type:"GET",
+                        dataType:"json",
+                        success:function(data){
+                            console.log(data);
+                            let d=$('select[name="state_id"]').empty();
+                            $.each(data,function(key,value){
+                                $('select[name="state_id"]').append('<option value="'+value.id+'">'+value.state_name+'</option>');
+                            })
+                        }
+                    })
+                }else{
+                    alert('danger')
+                }
+            })
+            $('select[name="division_id"]').on('change',function(){
+                let division_id=$(this).val();
+                if(division_id){
+                    $.ajax({
+                        url:"{{url('/get-district/ajax')}}/"+division_id,
+                        type:"GET",
+                        dataType:"json",
+                        success:function(data){
+                            $('select[name="state_id"]').empty();
+                            let d=$('select[name="district_id"]').empty();
+                            $.each(data,function(key,value){
+                                $('select[name="district_id"]').append('<option value="'+value.id+'">'+value.district_name+'</option>');
+                            })
+                        }
+                    })
+                }else{
+                    alert('danger')
+                }
+            })
+
+        })
+
+
+
+
+    </script>
 @endsection
 

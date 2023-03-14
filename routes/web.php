@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 
 use App\Http\Controllers\User\CartPageController;
+use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\WishlistController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -206,10 +207,14 @@ Route::prefix('shipping')->group(function (){
 
 });
 Route::get('/get-district/ajax/{division_id}', [ShippingController::class, 'GetDistrict']);
+Route::get('/get-state/ajax/{district_id}', [ShippingController::class, 'GetState']);
 //Coupon Apply
 Route::post('/coupon-apply',[CartController::class, 'ApplyCoupon']);
 Route::get('/coupon-calculation',[CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove',[CartController::class, 'CouponRemove']);
 //Checkout Routes
 Route::get('/checkout',[CartController::class, 'CheckoutUser'])->name('checkout');
+
+Route::get('/get-district/ajax/{division_id}', [CheckoutController::class, 'GetDistrict']);
+Route::get('/get-state/ajax/{district_id}', [CheckoutController::class, 'GetState']);
 

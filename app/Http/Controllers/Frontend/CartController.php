@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use App\Models\Product;
+use App\Models\ShipDivision;
 use App\Models\Wishlist;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -129,7 +130,8 @@ public function AddToWishlist(Request $request,$product_id){
                 $carts=Cart::content();
                 $cartQty=Cart::count();
                 $cartTotal=Cart::total();
-            return view('frontend.checkout.checkout_view',compact('cartQty','cartTotal','carts'));
+                $divisions=ShipDivision::orderBy('division_name', 'asc')->get();
+            return view('frontend.checkout.checkout_view',compact('cartQty','cartTotal','carts','divisions'));
             }else{
                 $notification=array(
                     'message'=>'Need some shopping first !',
