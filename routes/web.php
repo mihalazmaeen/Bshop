@@ -206,3 +206,8 @@ Route::prefix('shipping')->group(function (){
 
 });
 Route::get('/get-district/ajax/{division_id}', [ShippingController::class, 'GetDistrict']);
+//Coupon Apply
+Route::post('/coupon-apply',[CartController::class, 'ApplyCoupon']);
+Route::get('/coupon-calculation',[CartController::class, 'CouponCalculation']);
+Route::get('/coupon-remove',[CartController::class, 'CouponRemove']);
+
