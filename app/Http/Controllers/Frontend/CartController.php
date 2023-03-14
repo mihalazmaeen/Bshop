@@ -123,6 +123,29 @@ public function AddToWishlist(Request $request,$product_id){
         return response()->json(['success'=>'Coupon Remove Successfully']);
 
     }
+    public function CheckoutUser(){
+        if(Auth::user()){
+            if(Cart::total()>0){
+                $carts=Cart::content();
+                $cartQty=Cart::count();
+                $cartTotal=Cart::total();
+            return view('frontend.checkout.checkout_view',compact('cartQty','cartTotal','carts'));
+            }else{
+                $notification=array(
+                    'message'=>'Need some shopping first !',
+                    'alert-type'=>'error',
+                );
+                return redirect()->to('/')->with($notification);
+            }
+
+        }else{
+            $notification=array(
+                'message'=>'You need to Login First',
+                'alert-type'=>'error',
+            );
+            return redirect()->route('login')->with($notification);
+        }
+    }
 
 
 }

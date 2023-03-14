@@ -210,4 +210,6 @@ Route::get('/get-district/ajax/{division_id}', [ShippingController::class, 'GetD
 Route::post('/coupon-apply',[CartController::class, 'ApplyCoupon']);
 Route::get('/coupon-calculation',[CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove',[CartController::class, 'CouponRemove']);
+//Checkout Routes
+Route::get('/checkout',[CartController::class, 'CheckoutUser'])->name('checkout');
 
