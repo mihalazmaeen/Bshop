@@ -37,7 +37,7 @@
                                             <!-- guest-login -->
                                             <div class="col-md-6 col-sm-6 already-registered-login">
                                                 <h4 class="checkout-subtitle">Shipping Address</h4>
-                                                <form class="register-form" role="form">
+                                                <form class="register-form" action="{{route('checkout.store')}}" role="form">
                                                     <div class="form-group">
                                                         <label class="info-title" for="exampleInputEmail1">Name<span>*</span></label>
                                                         <input type="text" name="shipping_name" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="{{Auth::user()->name}}" required>
@@ -108,9 +108,9 @@
                                                     <textarea cols="30" rows="5" name="notes" class="form-control unicase-form-control text-input"  placeholder="Enter Notes" required></textarea>
                                                 </div>
 
-                                                    <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
 
-                                                </form>
+
+
                                             </div>
                                             <!-- already-registered-login -->
 
@@ -163,17 +163,50 @@
                                                     <strong>GrandTotal: </strong>${{$cartTotal}}
                                             </li>
                                                 @endif
-                                            <li><a href="#">Payment Method</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- checkout-progress-sidebar -->				</div>
+                    <div class="col-md-4">
+                        <!-- checkout-progress-sidebar -->
+                        <div class="checkout-progress-sidebar ">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="unicase-checkout-title">Payment Method</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="">Stripe</label>
+                                            <input type="radio" name="payment_method" value="stripe">
+                                            <img src="{{asset('assets/payments/2.png')}}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">Card</label>
+                                            <input type="radio" name="payment_method" value="card">
+                                            <img src="{{asset('assets/payments/3.png')}}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">COD</label>
+                                            <input type="radio" name="payment_method" value="cod">
+                                            <img src="{{asset('assets/payments/2.png')}}">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Confirm Order</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-progress-sidebar -->				</div>
+
+                    </form>
                 </div><!-- /.row -->
             </div><!-- /.checkout-box -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            ============================================== -->	</div><!-- /.container -->
+           	</div><!-- /.container -->
     </div><!-- /.body-content -->
     <script type="text/javascript">
         $(document).ready(function(){
