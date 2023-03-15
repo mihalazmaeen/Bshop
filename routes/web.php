@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\LanguageController;
 
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -164,6 +165,8 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'User'
     Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProduct']);
 //Remove Wishlist Product
     Route::get('/wishlist-remove/{id}', [WishlistController::class, 'RemoveWishlistProduct']);
+//    Stripe Order
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 
 });
 //    Cart Page
