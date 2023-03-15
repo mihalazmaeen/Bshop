@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderItem;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -25,12 +26,13 @@ class StripeController extends Controller
         $token = $_POST['stripeToken'];
 
         $charge = \Stripe\Charge::create([
-            'amount' => $total_amount,
+            'amount' => round($total_amount)*100,
             'currency' => 'BDT',
             'description' => 'BShop',
             'source' => $token,
             'metadata' => ['order_id' => uniqid()],
         ]);
+
         $order_id=Order::insertGetId([
             'user_id'=>Auth::id(),
             'division_id'=>$request->division_id,
@@ -41,9 +43,9 @@ class StripeController extends Controller
             'phone'=>$request->phone,
             'post_code'=>$request->post_code,
             'notes'=>$request->notes,
-            'payment_type'=>'Stripe',
+            'payment_type'=>$charge->payment_method,
             'payment_method'=>'Stripe',
-            
+
             'transaction_id'=>$charge->balance_transaction,
             'currency'=>$charge->currency,
             'amount'=>$total_amount,
@@ -55,8 +57,30 @@ class StripeController extends Controller
             'status'=>'pending',
             'created_at'=>Carbon::now(),
 
-
         ]);
+        $carts=Cart::content();
+        foreach ($carts as $cart){
+            OrderItem::insert([
+                'order_id'=>$order_id,
+                'product_id'=>$cart->id,
+                'color'=>$cart->options->color,
+                'size'=>$cart->options->size,
+                'qty'=>$cart->qty,
+                'price'=>$cart->price,
+                'created_at'=>Carbon::now(),
+
+            ]);
+        }
+        if (Session::has('coupon')){
+            Session::forget('coupon');
+
+        }
+        Cart::destroy();
+        $notification=array(
+            'message'=>'Order Placed Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('dashboard')->with($notification);
 
     }
 }
