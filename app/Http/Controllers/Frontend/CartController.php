@@ -95,6 +95,7 @@ public function AddToWishlist(Request $request,$product_id){
 
                 ]);
                 return response()->json(array(
+                    'validity'=>true,
                     'success'=>'Coupon Applied Successfully',
 
                 ));
