@@ -170,6 +170,8 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'User'
     Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 //    Orders of User
     Route::get('/myorders', [AllUserController::class, 'MyOrders'])->name('orders');
+//    Order Details
+    Route::get('/order_details/{order_id}',[AllUserController::class, 'OrderDetails']);
 
 });
 //    Cart Page
