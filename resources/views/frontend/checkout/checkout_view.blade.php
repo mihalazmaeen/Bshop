@@ -192,7 +192,7 @@
                                         <div class="col-md-4">
                                             <label for="">COD</label>
                                             <input type="radio" name="payment_method" value="cod">
-                                            <img src="{{asset('assets/payments/2.png')}}">
+                                            <img src="{{asset('assets/payments/6.png')}}">
                                         </div>
                                     </div>
                                     <hr>
