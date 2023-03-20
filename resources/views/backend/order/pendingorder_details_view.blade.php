@@ -87,6 +87,14 @@
                             <tr>
                                 <th>Status: <span class="badge badge-pill badge-info">{{$order->status}}</span></th>
                             </tr>
+                            <tr>
+                                <th>
+                                    @if($order->status=='pending')
+                                        <a href="{{route('pending-order-confirm',$order->id)}}" id="confirm_order" class="btn btn-block btn-success">Confirm Order</a>
+                                    @endif
+                                </th>
+
+                            </tr>
 
 
                         </table>

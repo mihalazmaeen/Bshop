@@ -43,4 +43,12 @@ class OrderController extends Controller
         $order_items=OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
         return view('backend.order.pendingorder_details_view',compact('order_items','order'));
     }
+    public function PendingOrderConfirm($order_id){
+        $confirm_order = Order::find($order_id)->update(['status' => 'confirmed']);
+        $notification=array(
+            'message'=>'Order Confirmed Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('pending-orders')->with($notification);
+    }
 }
