@@ -181,6 +181,7 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'User'
 //Return Order
     Route::post('/order/return/{order_id}',[AllUserController::class, 'ReturnOrder'])->name('return-order');
     Route::get('/order/returnlist',[AllUserController::class, 'ReturnOrderView'])->name('my-returns');
+    Route::get('/order/cancellist',[AllUserController::class, 'CancelOrderView'])->name('my-cancellations');
 
 
 });
