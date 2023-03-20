@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ShippingController;
 use App\Http\Controllers\Backend\SliderController;
@@ -190,13 +191,18 @@ Route::get('/cart-increment/{id}', [CartPageController::class, 'CartIncrement'])
 //Cart Quantity Decrement
 Route::get('/cart-decrement/{id}', [CartPageController::class, 'CartDecrement']);
 
-//Admin all categories
+//Admin all coupons
 Route::prefix('coupon')->group(function(){
     Route::get('/view', [CouponController::class, 'CouponView'])->name('manage-coupon');
     Route::post('/store', [CouponController::class, 'CouponStore'])->name('coupon.store');
     Route::get('/edit/{id}', [CouponController::class, 'CouponEdit'])->name('coupon.edit');
     Route::post('/update/{id}', [CouponController::class, 'CouponUpdate'])->name('coupon.update');
     Route::get('/delete/{id}', [CouponController::class, 'CouponDelete'])->name('coupon.delete');
+});
+//Admin all orders
+Route::prefix('orders')->group(function(){
+    Route::get('/pending-orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+
 });
 Route::prefix('shipping')->group(function (){
     Route::get('/division/view',[ShippingController::class, 'DivisionView'])->name('manage-division');
