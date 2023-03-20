@@ -203,7 +203,16 @@ Route::prefix('coupon')->group(function(){
 Route::prefix('orders')->group(function(){
     Route::get('/pending-orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
     Route::get('/pending-order-details/{order_id}', [OrderController::class, 'PendingOrderDetails'])->name('pending-order-details');
+//Order Status Change
     Route::get('/pending-order-confirm/{order_id}', [OrderController::class, 'PendingOrderConfirm'])->name('pending-order-confirm');
+    Route::get('/confirmed-order-processing/{order_id}', [OrderController::class, 'ConfirmedOrderProcessing'])->name('confirmed-order-processing');
+    Route::get('/processing-order-picked/{order_id}', [OrderController::class, 'ProcessingOrderPicked'])->name('processing-order-picked');
+    Route::get('/picked-order-shipped/{order_id}', [OrderController::class, 'PickedOrderShipped'])->name('picked-order-shipped');
+    Route::get('/shipped-order-delivered/{order_id}', [OrderController::class, 'ShippedOrderDelivered'])->name('shipped-order-delivered');
+
+//Admin Invoice Download
+    Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('admin.invoice');
+
     Route::get('/confirmed-orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
     Route::get('/processing-orders', [OrderController::class, 'ProcessingOrders'])->name('processing-orders');
     Route::get('/picked-orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');

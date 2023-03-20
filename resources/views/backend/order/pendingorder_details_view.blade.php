@@ -91,6 +91,15 @@
                                 <th>
                                     @if($order->status=='pending')
                                         <a href="{{route('pending-order-confirm',$order->id)}}" id="confirm_order" class="btn btn-block btn-success">Confirm Order</a>
+                                    @elseif($order->status=='confirmed')
+                                        <a href="{{route('confirmed-order-processing',$order->id)}}" id="processing_order" class="btn btn-block btn-success">Process Order</a>
+                                    @elseif($order->status=='processing')
+                                        <a href="{{route('processing-order-picked',$order->id)}}" id="picked_order" class="btn btn-block btn-success">Picked Order</a>
+                                    @elseif($order->status=='picked')
+                                        <a href="{{route('picked-order-shipped',$order->id)}}" id="shipped_order" class="btn btn-block btn-success">Ship Order</a>
+                                    @elseif($order->status=='shipped')
+                                        <a href="{{route('shipped-order-delivered',$order->id)}}" id="delivered_order" class="btn btn-block btn-success">Deliver Order</a>
+
                                     @endif
                                 </th>
 

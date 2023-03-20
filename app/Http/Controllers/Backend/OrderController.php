@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,4 +52,48 @@ class OrderController extends Controller
         );
         return redirect()->route('pending-orders')->with($notification);
     }
+    public function ConfirmedOrderProcessing($order_id){
+        $processing_order = Order::find($order_id)->update(['status' => 'processing']);
+        $notification=array(
+            'message'=>'Order Started Processing Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('confirmed-orders')->with($notification);
+    }
+    public function ProcessingOrderPicked($order_id){
+        $picked_order = Order::find($order_id)->update(['status' => 'picked']);
+        $notification=array(
+            'message'=>'Order Picked Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('processing-orders')->with($notification);
+    }
+    public function PickedOrderShipped($order_id){
+        $shipped_order = Order::find($order_id)->update(['status' => 'shipped']);
+        $notification=array(
+            'message'=>'Order shipped Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('picked-orders')->with($notification);
+    }
+    public function ShippedOrderDelivered($order_id){
+        $delivered_order = Order::find($order_id)->update(['status' => 'delivered']);
+        $notification=array(
+            'message'=>'Order delivered Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('shipped-orders')->with($notification);
+    }
+    public function AdminInvoiceDownload($order_id){
+        $order = Order::with('division','district','state','user')->where('id',$order_id)->first();
+        $order_items=OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','DESC')->get();
+
+        $pdf = Pdf::loadView('backend.order.invoice',compact('order_items','order'))->setPaper('a4')->setOptions([
+            'tempDir'=>public_path(),
+            'chroot'=>public_path(),
+        ]);
+        return $pdf->download('invoice.pdf');
+
+    }
+
 }
