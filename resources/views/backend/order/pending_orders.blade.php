@@ -10,7 +10,7 @@
         <section class="content">
             <div class="row">
 
-                <div class="col-8">
+                <div class="col-12">
 
                     <div class="box">
                         <div class="box-header with-border">
@@ -42,7 +42,7 @@
 
 
                                             <td width="30%">
-                                                <a href="{{route('coupon.edit',$item->id)}}" class="btn btn-info" title="Edit Category"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{route('pending-order-details',$item->id)}}" class="btn btn-info" title="Edit Category"><i class="fa fa-eye"></i></a>
                                                 <a href="{{route('coupon.delete',$item->id)}}" id="delete" class="btn btn-danger" title="Delete Category"><i class="fa fa-trash"></i></a>
                                             </td>
 

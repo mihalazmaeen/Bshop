@@ -202,6 +202,7 @@ Route::prefix('coupon')->group(function(){
 //Admin all orders
 Route::prefix('orders')->group(function(){
     Route::get('/pending-orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+    Route::get('/pending-order-details/{order_id}', [OrderController::class, 'PendingOrderDetails'])->name('pending-order-details');
 
 });
 Route::prefix('shipping')->group(function (){
