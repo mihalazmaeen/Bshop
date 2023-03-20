@@ -120,7 +120,7 @@
                     }
                 @else
                 {{$item->size}}
-                
+
                 @endif
             </td>
             <td align="center">{{$item->color}}</td>
