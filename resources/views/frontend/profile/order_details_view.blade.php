@@ -1,5 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
+
+
     <div class="body-content">
         <div class="container">
             <div class="row">
@@ -13,7 +15,6 @@
                             <table class="table">
                                 <tr>
                                     <th>Shipping Name: {{$order->name}}</th>
-
                                 </tr>
                                 <tr>
                                     <th>Shipping Phone: {{$order->phone}}</th>
@@ -43,6 +44,12 @@
                     </div>
 
                 </div>
+                @php
+                    $order_status=$order->status;
+                    $order_id=$order->id;
+                    $order_return=$order->return_reason;
+
+                @endphp
 
                 <div class="col-md-5">
                     <div class="card">
@@ -73,7 +80,9 @@
                                 </tr>
 
 
+
                             </table>
+
                         </div>
 
                     </div>
@@ -144,14 +153,31 @@
 
                 </div>
 
-                @if($order->status !== 'delivered')
+                @php
+
+                @endphp
+
+                @if($order_status == "delivered" && $order_return == NULL)
+                    <form action="{{route('return-order',$order_id)}}" method="post">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="label"> Return Reason </label>
+                            <textarea name="return_reason" id="" class="form-control" cols="30" rows="05">Return Reason</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                @elseif($order_return !== NULL)
+
+                    <label for=""><span class="badge badge-pill badge-info" style="background: red">Return Requested</span> </label>
 
                 @else
-                    <div class="form-group">
-                        <label for="label"> Return Reason</label>
-                        <textarea name="return_reason" id="" class="form-control" cols="30" row="05">Return Reason</textarea>
-                    </div>
+
+
+                
+
                 @endif
+                <br><br>
 
             </div>
         </div>
