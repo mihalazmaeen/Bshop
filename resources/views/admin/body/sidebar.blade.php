@@ -129,6 +129,14 @@ $route=Route::current()->getName();
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{($route=='pending-orders')?'active':''}}"><a href="{{route('pending-orders')}}"><i class="ti-more"></i>Pending Orders</a></li>
+                    <li class="{{($route=='confirmed-orders')?'active':''}}"><a href="{{route('confirmed-orders')}}"><i class="ti-more"></i>Confirmed Orders</a></li>
+                    <li class="{{($route=='processing-orders')?'active':''}}"><a href="{{route('processing-orders')}}"><i class="ti-more"></i>Processing Orders</a>
+                    </li>
+                    <li class="{{($route=='picked-orders')?'active':''}}"><a href="{{route('picked-orders')}}"><i class="ti-more"></i>Picked Orders</a></li>
+                    <li class="{{($route=='shipped-orders')?'active':''}}"><a href="{{route('shipped-orders')}}"><i class="ti-more"></i>Shipped Orders</a>
+                    <li class="{{($route=='delivered-orders')?'active':''}}"><a href="{{route('delivered-orders')}}"><i class="ti-more"></i>Delivered Orders</a></li>
+                    <li class="{{($route=='canceled-orders')?'active':''}}"><a href="{{route('canceled-orders')}}"><i class="ti-more"></i>Canceled Orders</a></li>
+
                     {{--                    <li class="{{($route=='manage-product')?'active':''}}"><a href="{{route('manage-product')}}"><i class="ti-more"></i>Manage Product</a></li>--}}
 
                 </ul>

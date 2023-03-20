@@ -203,6 +203,12 @@ Route::prefix('coupon')->group(function(){
 Route::prefix('orders')->group(function(){
     Route::get('/pending-orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
     Route::get('/pending-order-details/{order_id}', [OrderController::class, 'PendingOrderDetails'])->name('pending-order-details');
+    Route::get('/confirmed-orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
+    Route::get('/processing-orders', [OrderController::class, 'ProcessingOrders'])->name('processing-orders');
+    Route::get('/picked-orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
+    Route::get('/shipped-orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
+    Route::get('/delivered-orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
+    Route::get('/canceled-orders', [OrderController::class, 'CanceledOrders'])->name('canceled-orders');
 
 });
 Route::prefix('shipping')->group(function (){
