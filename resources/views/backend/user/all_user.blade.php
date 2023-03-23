@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">All Users</h3>
+                            <h3 class="box-title">All Users <span class="badge badge-pill badge-success">{{count($users)}}</span></h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
