@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShippingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -260,4 +261,10 @@ Route::get('/checkout/store',[CheckoutController::class, 'CheckoutStore'])->name
 
 Route::get('/get-district/ajax/{division_id}', [CheckoutController::class, 'GetDistrict']);
 Route::get('/get-state/ajax/{district_id}', [CheckoutController::class, 'GetState']);
+
+Route::prefix('reports')->group(function(){
+    Route::get('/all-reports', [ReportController::class, 'ReportsView'])->name('all-reports');
+
+
+});
 
