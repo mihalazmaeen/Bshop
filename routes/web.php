@@ -264,6 +264,9 @@ Route::get('/get-state/ajax/{district_id}', [CheckoutController::class, 'GetStat
 
 Route::prefix('reports')->group(function(){
     Route::get('/all-reports', [ReportController::class, 'ReportsView'])->name('all-reports');
+    Route::post('/searchby-date', [ReportController::class, 'ReportByDate'])->name('searchby-date');
+    Route::post('/searchby-month', [ReportController::class, 'ReportByMonth'])->name('searchby-month');
+    Route::post('/searchby-year', [ReportController::class, 'ReportByYear'])->name('searchby-year');
 
 
 });
