@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShippingController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\CartController;
@@ -270,6 +271,11 @@ Route::prefix('reports')->group(function(){
 });
 Route::prefix('allusers')->group(function(){
     Route::get('/view', [AdminProfileController::class, 'AllusersView'])->name('all-users');
+});
+
+Route::prefix('sitesetting')->group(function(){
+    Route::get('/site/setting', [SiteSettingController::class, 'SiteSettingView'])->name('site-setting');
+    Route::get('/site/setting/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name(' update.sitesetting');
 
 });
 

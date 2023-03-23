@@ -178,6 +178,22 @@ $route=Route::current()->getName();
                 </ul>
             </li>
 
+            <li class="treeview" class="{{($prefix=='/sitesetting')?'active':''}}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Site Settings</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{($route=='site-setting')?'active':''}}"><a href="{{route('site-setting')}}"><i class="ti-more"></i>Site Setting</a></li>
+
+
+
+                </ul>
+            </li>
+
 
 
 

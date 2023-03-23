@@ -1,3 +1,6 @@
+
+
+
 @extends('admin.admin_master')
 @section('admin')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -8,14 +11,14 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Edit Password for Admin</h4>
+                    <h4 class="box-title">Site Setting</h4>
 
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" action="{{route('update.admin.password')}}" >
+                            <form method="post" action="{{route('update.admin.password')}}" enctype="multipart/form-data" >
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
