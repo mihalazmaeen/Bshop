@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+$setting=\App\Models\Seo::find(1);
+@endphp
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="">
+    <meta name="description" content="{{$setting->meta_description}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="author" content="">
-    <meta name="keywords" content="MediaCenter, Template, eCommerce">
+    <meta name="author" content="{{$setting->meta_author}}">
+    <meta name="keywords" content="{{$setting->meta_keyword}}">
     <meta name="robots" content="all">
+    <script>
+        {{$setting->google_analytics}}
+    </script>
+
     <title>@yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
