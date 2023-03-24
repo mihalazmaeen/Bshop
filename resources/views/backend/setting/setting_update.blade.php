@@ -8,25 +8,26 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">Edit Password for Admin</h4>
+                    <h4 class="box-title">Site Setting</h4>
 
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form method="post" action="{{route('update.sitesetting')}}" >
+                            <form method="post" action="{{route('update-site')}}" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="id" value="{{$setting->id}}" />
                                 <div class="row">
                                     <div class="col-12">
 
                                         <div class="row">
-                                            <input type="hidden" name="id" value="{{$setting->id}}" />
+
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <h5>Company Logo <span class="text-danger">*</span></h5>
                                                     <div class="controls">
-                                                        <input type="file" id="logo" name="logo" class="form-control" value="{{$setting->logo}}" required="" >
+                                                        <input type="file"  name="logo" class="form-control" value="{{$setting->logo}}" required="" >
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

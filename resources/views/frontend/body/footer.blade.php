@@ -3,6 +3,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
+                    @php
+                    $setting=\App\Models\SiteSetting::find(1);
+                    @endphp
                     <div class="module-heading">
                         <h4 class="module-title">Contact Us</h4>
                     </div>
@@ -13,19 +16,19 @@
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                                 <div class="media-body">
-                                    <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                                    <p>{{$setting->company_address}}</p>
                                 </div>
                             </li>
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                                 <div class="media-body">
-                                    <p>+(888) 123-4567<br>
-                                        +(888) 456-7890</p>
+                                    <p>{{$setting->phone_one}}<br>
+                                        {{$setting->phone_two}}</p>
                                 </div>
                             </li>
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                                <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                                <div class="media-body"> <span><a href="#">{{$setting->email}}</a></span> </div>
                             </li>
                         </ul>
                     </div>

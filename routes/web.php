@@ -274,8 +274,8 @@ Route::prefix('allusers')->group(function(){
 });
 
 Route::prefix('sitesetting')->group(function(){
-    Route::get('/site/setting', [SiteSettingController::class, 'SiteSettingView'])->name('site-setting');
-    Route::get('/site/setting/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name(' update.sitesetting');
+    Route::get('/view', [SiteSettingController::class, 'SiteSettingView'])->name('site-setting');
+    Route::post('/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name('update-site');
 
 });
 
