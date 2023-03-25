@@ -27,7 +27,7 @@
                                         <th>Amount</th>
                                         <th>Payment Method</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+
 
                                     </tr>
                                     </thead>
@@ -38,13 +38,10 @@
                                             <td>{{$item->invoice_no}}</td>
                                             <td>{{$item->amount}}</td>
                                             <td>{{$item->payment_method}}</td>
-                                            <td><span class="badge badge-pill badge-primary">{{$item->status}}</span></td>
+                                            <td><span class="badge badge-pill badge-primary">Return Approved</span></td>
 
 
-                                            <td width="30%">
-                                                <a href="{{route('approve-return',$item->id)}}" class="btn btn-danger" title="Approve Return">Approve</a>
 
-                                            </td>
 
                                         </tr>
                                     @endforeach
