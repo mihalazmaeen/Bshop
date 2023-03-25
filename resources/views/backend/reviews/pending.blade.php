@@ -14,7 +14,7 @@
 
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Return Requests</h3>
+                            <h3 class="box-title">Pending Reviews</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -22,27 +22,33 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Order Date</th>
-                                        <th>Invoice</th>
-                                        <th>Amount</th>
-                                        <th>Payment Method</th>
+                                        <th>Summary</th>
+                                        <th>Comment</th>
+                                        <th>User</th>
+                                        <th>Product</th>
                                         <th>Status</th>
                                         <th>Action</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($returns as $item)
+                                    @foreach($pending as $item)
                                         <tr>
-                                            <td>{{$item->order_date}}</td>
-                                            <td>{{$item->invoice_no}}</td>
-                                            <td>{{$item->amount}}</td>
-                                            <td>{{$item->payment_method}}</td>
-                                            <td><span class="badge badge-pill badge-primary">{{$item->status}}</span></td>
+                                            <td>{{$item->summary}}</td>
+                                            <td>{{$item->comment}}</td>
+                                            <td>{{$item->user->name}}</td>
+                                            <td>{{$item->product->product_name_en}}</td>
+                                            <td>
+                                                @if($item->status ==0)
+                                                <span class="badge badge-pill badge-primary">Pending</span>
+                                                    @else
+                                                    <span class="badge badge-pill badge-primary">Approved</span>
+                                                @endif
+                                            </td>
 
 
                                             <td width="30%">
-                                                <a href="{{route('approve-return',$item->id)}}" class="btn btn-danger" title="Approve Return">Approve</a>
+                                                <a href="{{route('review-approve',$item->id)}}" class="btn btn-danger" title="Approve Return">Approve</a>
 
                                             </td>
 

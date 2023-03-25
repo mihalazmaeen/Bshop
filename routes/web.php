@@ -284,9 +284,17 @@ Route::prefix('sitesetting')->group(function(){
 });
 Route::prefix('return')->group(function(){
     Route::get('/view', [ReturnOrderController::class, 'ReturnRequestView'])->name('return-requests');
+    Route::get('/approve/{order_id}', [ReturnOrderController::class, 'ApproveReturn'])->name('approve-return');
+    Route::get('/approvelist', [ReturnOrderController::class, 'Approvelist'])->name('approve-list');
 });
 
 //FrontEnd Review Store
 
  Route::post('/review/store', [ReviewController::class, 'ReviewStore'])->name('review.store');
+// Admin Review Control
+Route::prefix('review')->group(function(){
+    Route::get('/pending', [ReviewController::class, 'PendingReviews'])->name('pending-reviews');
+    Route::get('/approve/{review_id}', [ReviewController::class, 'ApproveReviews'])->name('review-approve');
+    Route::get('/published', [ReviewController::class, 'PublishedReviews'])->name('published-reviews');
+});
 

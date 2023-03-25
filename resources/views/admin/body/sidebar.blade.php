@@ -152,7 +152,7 @@ $route=Route::current()->getName();
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{($route=='return-requests')?'active':''}}"><a href="{{route('return-requests')}}"><i class="ti-more"></i>All Requests</a></li>
-                    <li class="{{($route=='seo-setting')?'active':''}}"><a href="{{route('seo-setting')}}"><i class="ti-more"></i>SEO Setting</a></li>
+                    <li class="{{($route=='approve-list')?'active':''}}"><a href="{{route('approve-list')}}"><i class="ti-more"></i>Approved Returns</a></li>
 
 
 
@@ -206,6 +206,24 @@ $route=Route::current()->getName();
                 <ul class="treeview-menu">
                     <li class="{{($route=='site-setting')?'active':''}}"><a href="{{route('site-setting')}}"><i class="ti-more"></i>Site Setting</a></li>
                     <li class="{{($route=='seo-setting')?'active':''}}"><a href="{{route('seo-setting')}}"><i class="ti-more"></i>SEO Setting</a></li>
+
+
+
+                </ul>
+            </li>
+
+{{--            Reviews--}}
+            <li class="treeview" class="{{($prefix=='/review')?'active':''}}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Product Reviews</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{($route=='pending-reviews')?'active':''}}"><a href="{{route('pending-reviews')}}"><i class="ti-more"></i>Pending Reviews</a></li>
+                    <li class="{{($route=='published-reviews')?'active':''}}"><a href="{{route('published-reviews')}}"><i class="ti-more"></i>Published Reviews</a></li>
 
 
 

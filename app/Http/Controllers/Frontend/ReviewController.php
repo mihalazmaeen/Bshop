@@ -29,4 +29,22 @@ class ReviewController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function PendingReviews(){
+        $pending=Review::where('status',0)->get();
+        return view('backend.reviews.pending',compact('pending'));
+    }
+    public function ApproveReviews($review_id){
+        Review::where('id',$review_id)->update(['status' =>1]);
+        $notification=array(
+            'message'=>'Review Approved Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }
+    public function PublishedReviews(){
+        $published=Review::where('status',1)->get();
+        return view('backend.reviews.published',compact('published'));
+    }
+
 }
