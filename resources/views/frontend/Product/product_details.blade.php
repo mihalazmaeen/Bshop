@@ -303,10 +303,27 @@
                                                 <h4 class="title">Customer Reviews</h4>
 
                                                 <div class="reviews">
+                                                    @php
+                                                    $reviews=\App\Models\Review::where('product_id',$product->id)->latest()->limit(5)->get();
+                                                    @endphp
+                                                    @foreach($reviews as $review)
+                                                        @if($review->status ==0)
+
+                                                        @else
                                                     <div class="review">
-                                                        <div class="review-title"><span class="summary">We love this product</span><span class="date"><i class="fa fa-calendar"></i><span>1 days ago</span></span></div>
-                                                        <div class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <img style="border-radius: 50%" src="{{(!empty($user->profile_photo_path))? url('upload/user_images/'.$user->profile_photo_path): url('upload/no_image.jpg')}}" height="40px" width="40px"><b> {{$review->user->name}}</b>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="review-title"><span class="summary">{{$review->summary}}</span><span class="date"><i class="fa fa-calendar"></i><span>{{\Carbon\Carbon::parse($review->created_at)->diffForHumans()}}</span></span></div>
+                                                        <div class="text">{{$review->comment}}</div>
                                                     </div>
+                                                        @endif
+                                                    @endforeach
 
                                                 </div><!-- /.reviews -->
                                             </div><!-- /.product-reviews -->
@@ -314,7 +331,7 @@
 
 
                                             <div class="product-add-review">
-                                                <h4 class="title">Write your own review</h4>
+                                                <h4 class="title"></h4>
                                                 <div class="review-table">
                                                     <div class="table-responsive">
 {{--                                                        <table class="table">--}}
@@ -365,13 +382,14 @@
                                                      @php
 
                                                      $items=\App\Models\OrderItem::where('product_id',$product->id)->where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->get();
+                                                     $hasreview=\App\Models\Review::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->where('product_id',$product->id)->get();
 
 
                                                      @endphp
-                                                    @if(count($items)>0)
+                                                    @if(count($items)>0 && count($hasreview)==0)
                                                     <div class="form-container">
                                                         <form role="form" class="cnt-form" method="post" action="{{route('review.store')}}">
-
+                                                            @csrf
                                                             <div class="row">
                                                                 <div class="col-sm-6">
                                                                     <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -396,6 +414,8 @@
 
                                                         </form><!-- /.cnt-form -->
                                                     </div>
+                                                        @elseif(count($items)>0 && count($hasreview)>0)
+                                                            <p><b>You have already added a review of this product ! </b></p>
                                                         @else
                                                             <p><b>To add Review, You need to Order the product first ! </b></p>
                                                         @endif
