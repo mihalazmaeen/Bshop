@@ -283,8 +283,6 @@ Route::prefix('sitesetting')->group(function(){
 });
 Route::prefix('return')->group(function(){
     Route::get('/view', [ReturnOrderController::class, 'ReturnRequestView'])->name('return-requests');
-    Route::get('/approve/{order_id}', [ReturnOrderController::class, 'ApproveReturn'])->name('approve-return');
-    Route::get('/approvelist', [ReturnOrderController::class, 'Approvelist'])->name('approve-list');
 
 
 });

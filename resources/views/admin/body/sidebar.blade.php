@@ -152,7 +152,7 @@ $route=Route::current()->getName();
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{($route=='return-requests')?'active':''}}"><a href="{{route('return-requests')}}"><i class="ti-more"></i>All Requests</a></li>
-                    <li class="{{($route=='approve-list')?'active':''}}"><a href="{{route('approve-list')}}"><i class="ti-more"></i>Approved Returns</a></li>
+                    <li class="{{($route=='seo-setting')?'active':''}}"><a href="{{route('seo-setting')}}"><i class="ti-more"></i>SEO Setting</a></li>
 
 
 

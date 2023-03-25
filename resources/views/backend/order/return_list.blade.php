@@ -42,7 +42,7 @@
 
 
                                             <td width="30%">
-                                                <a href="{{route('approve-return',$item->id)}}" class="btn btn-danger" title="Approve Return">Approve</a>
+                                                <a href="{{route('pending-order-details',$item->id)}}" class="btn btn-danger" title="Approve Return">Approve</a>
 
                                             </td>
 
