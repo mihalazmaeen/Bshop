@@ -62,6 +62,7 @@ class CodController extends Controller
             OrderItem::insert([
                 'order_id'=>$order_id,
                 'product_id'=>$cart->id,
+                'user_id'=>Auth::user()->id,
                 'color'=>$cart->options->color,
                 'size'=>$cart->options->size,
                 'qty'=>$cart->qty,

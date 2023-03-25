@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
 
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
@@ -283,7 +284,9 @@ Route::prefix('sitesetting')->group(function(){
 });
 Route::prefix('return')->group(function(){
     Route::get('/view', [ReturnOrderController::class, 'ReturnRequestView'])->name('return-requests');
-
-
 });
+
+//FrontEnd Review Store
+
+ Route::post('/review/store', [ReviewController::class, 'ReviewStore'])->name('review.store');
 

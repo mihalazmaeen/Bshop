@@ -18,6 +18,7 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('color')->nullable();
             $table->string('size')->nullable();
             $table->string('qty');
