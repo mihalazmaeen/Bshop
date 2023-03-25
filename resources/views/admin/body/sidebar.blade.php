@@ -68,6 +68,7 @@ $route=Route::current()->getName();
                 <ul class="treeview-menu">
                     <li class="{{($route=='add-product')?'active':''}}"><a href="{{route('add-product')}}"><i class="ti-more"></i>Add Product</a></li>
                     <li class="{{($route=='manage-product')?'active':''}}"><a href="{{route('manage-product')}}"><i class="ti-more"></i>Manage Product</a></li>
+                    <li class="{{($route=='product-stock')?'active':''}}"><a href="{{route('product-stock')}}"><i class="ti-more"></i>Product Stock</a></li>
 
                 </ul>
             </li>
@@ -229,6 +230,7 @@ $route=Route::current()->getName();
 
                 </ul>
             </li>
+
 
 
 

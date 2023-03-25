@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -77,6 +79,12 @@ class OrderController extends Controller
         return redirect()->route('picked-orders')->with($notification);
     }
     public function ShippedOrderDelivered($order_id){
+        $product=OrderItem::where('order_id',$order_id)->get();
+        foreach($product as $item){
+            Product::where('id',$item->product_id)->update([
+                'product_quantity' => DB::raw('product_quantity-'.$item->qty)]);
+        }
+
         $delivered_order = Order::find($order_id)->update(['status' => 'delivered']);
         $notification=array(
             'message'=>'Order delivered Successfully',
