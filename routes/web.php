@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\ReturnOrderController;
 use App\Http\Controllers\Backend\ShippingController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SliderController;
@@ -278,6 +279,11 @@ Route::prefix('sitesetting')->group(function(){
     Route::post('/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name('update-site');
     Route::post('/seoupdate', [SiteSettingController::class, 'SeoSettingUpdate'])->name('update-seo');
     Route::get('/seo', [SiteSettingController::class, 'SeoSetting'])->name('seo-setting');
+
+});
+Route::prefix('return')->group(function(){
+    Route::get('/view', [ReturnOrderController::class, 'ReturnRequestView'])->name('return-requests');
+
 
 });
 

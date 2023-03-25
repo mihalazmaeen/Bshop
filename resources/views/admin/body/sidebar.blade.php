@@ -142,6 +142,23 @@ $route=Route::current()->getName();
                 </ul>
             </li>
 
+            <li class="treeview" class="{{($prefix=='/return')?'active':''}}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>Return Requests</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{($route=='return-requests')?'active':''}}"><a href="{{route('return-requests')}}"><i class="ti-more"></i>All Requests</a></li>
+                    <li class="{{($route=='seo-setting')?'active':''}}"><a href="{{route('seo-setting')}}"><i class="ti-more"></i>SEO Setting</a></li>
+
+
+
+                </ul>
+            </li>
+
 
 
 
@@ -194,6 +211,8 @@ $route=Route::current()->getName();
 
                 </ul>
             </li>
+
+
 
 
 
