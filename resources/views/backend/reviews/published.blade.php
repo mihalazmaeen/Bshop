@@ -27,7 +27,7 @@
                                         <th>User</th>
                                         <th>Product</th>
                                         <th>Status</th>
-
+                                        <th>Action</th>
 
                                     </tr>
                                     </thead>
@@ -47,7 +47,10 @@
                                             </td>
 
 
+                                            <td width="30%">
+                                                <a href="{{route('delete-review',$item->id)}}" id="delete" class="btn btn-danger" title="Approve Return">Delete</a>
 
+                                            </td>
 
                                         </tr>
                                     @endforeach

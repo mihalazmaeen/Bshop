@@ -296,5 +296,6 @@ Route::prefix('review')->group(function(){
     Route::get('/pending', [ReviewController::class, 'PendingReviews'])->name('pending-reviews');
     Route::get('/approve/{review_id}', [ReviewController::class, 'ApproveReviews'])->name('review-approve');
     Route::get('/published', [ReviewController::class, 'PublishedReviews'])->name('published-reviews');
+    Route::get('/delete/{review_id}', [ReviewController::class, 'DeleteReviews'])->name('delete-review');
 });
 
