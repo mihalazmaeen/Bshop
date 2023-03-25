@@ -50,8 +50,15 @@
                                                     <label for="">{{$order->payment_method}}</label>
                                                 </td>
                                                 <td class="col-md-1">
-                                                    <label for=""><span class="badge badge-pill badge-info">{{$order->status}}</span> </label>
+                                                    @if($order->return_order==1)
+
+                                                    <label for=""><span class="badge badge-pill badge-info">Return Pending</span> </label>
                                                     <label for=""><span class="badge badge-pill badge-info" style="background: red">Return Requested</span> </label>
+                                                    @elseif($order->return_order==2)
+                                                        <label for=""><span class="badge badge-pill badge-success">Return Success</span> </label>
+
+                                                    @endif
+
                                                 </td>
                                                 <td class="col-md-3">
                                                     <a href="{{url('user/order_details/'.$order->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>View</a>
