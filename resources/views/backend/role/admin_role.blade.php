@@ -15,6 +15,7 @@
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">All Admins</h3>
+                            <a href="{{route('add.admin')}}" class="btn btn-danger" style="float: right">Add Admin</a>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
@@ -37,8 +38,8 @@
                                             <td><img src="{{asset($item->profile_photo_path)}}"></td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td>{{$item->payment_method}}</td>
-                                            <td><span class="badge badge-pill badge-primary">{{$item->status}}</span></td>
+
+                                           <td>access</td>
 
 
                                             <td width="30%">

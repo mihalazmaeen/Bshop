@@ -302,6 +302,8 @@ Route::prefix('review')->group(function(){
 });
 Route::prefix('adminuserrole')->group(function(){
     Route::get('/view', [AdminRoleController::class, 'AllAdmin'])->name('all-admins');
+    Route::get('/add', [AdminRoleController::class, 'AddAdmin'])->name('add.admin');
+    Route::post('/store', [AdminRoleController::class, 'StoreAdmin'])->name('store.admin');
 
 });
 
