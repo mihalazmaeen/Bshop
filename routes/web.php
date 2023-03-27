@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminRoleController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
@@ -299,4 +300,9 @@ Route::prefix('review')->group(function(){
     Route::get('/published', [ReviewController::class, 'PublishedReviews'])->name('published-reviews');
     Route::get('/delete/{review_id}', [ReviewController::class, 'DeleteReviews'])->name('delete-review');
 });
+Route::prefix('adminuserrole')->group(function(){
+    Route::get('/view', [AdminRoleController::class, 'AllAdmin'])->name('all-admins');
+
+});
+
 

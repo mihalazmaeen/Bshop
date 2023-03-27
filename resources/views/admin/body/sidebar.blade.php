@@ -195,6 +195,21 @@ $route=Route::current()->getName();
 
                 </ul>
             </li>
+            <li class="treeview" class="{{($prefix=='/adminuserrole')?'active':''}}">
+                <a href="#">
+                    <i data-feather="file"></i>
+                    <span>All Admins</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{($route=='all-admins')?'active':''}}"><a href="{{route('all-admins')}}"><i class="ti-more"></i>All Admins</a></li>
+
+
+
+                </ul>
+            </li>
 
             <li class="treeview" class="{{($prefix=='/sitesetting')?'active':''}}">
                 <a href="#">
