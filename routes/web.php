@@ -304,6 +304,9 @@ Route::prefix('adminuserrole')->group(function(){
     Route::get('/view', [AdminRoleController::class, 'AllAdmin'])->name('all-admins');
     Route::get('/add', [AdminRoleController::class, 'AddAdmin'])->name('add.admin');
     Route::post('/store', [AdminRoleController::class, 'StoreAdmin'])->name('store.admin');
+    Route::get('/edit/{id}', [AdminRoleController::class, 'EditAdmin'])->name('edit-admin-role');
+    Route::get('/delete/{id}', [AdminRoleController::class, 'DeleteAdmin'])->name('delete-admin-role');
+    Route::post('/update/role', [AdminRoleController::class, 'UpdateAdminRole'])->name('update-adminrole');
 
 });
 

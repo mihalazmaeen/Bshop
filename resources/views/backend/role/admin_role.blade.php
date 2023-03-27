@@ -40,10 +40,8 @@
                                             <td>{{$item->email}}</td>
 
                                            <td>
-                                               @if($item->brand==1)
-                                                   <span class="badge btn-primary">brand</span>
-                                               @else
-                                               @endif
+
+
                                                @if($item->brand==1)
                                                    <span class="badge btn-primary">brand</span>
                                                @else
@@ -110,8 +108,8 @@
 
 
                                             <td width="30%">
-                                                <a href="{{route('pending-order-details',$item->id)}}" class="btn btn-info" title="Edit Admin"><i class="fa fa-eye"></i></a>
-                                                <a href="{{route('admin.invoice',$item->id)}}" id="delete" class="btn btn-danger" title="Delete Admin"><i class="fa fa-trash"></i></a>
+                                                <a href="{{route('edit-admin-role',$item->id)}}" class="btn btn-info" title="Edit Admin"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{route('delete-admin-role',$item->id)}}" id="delete" class="btn btn-danger" title="Delete Admin"><i class="fa fa-trash"></i></a>
                                             </td>
 
                                         </tr>

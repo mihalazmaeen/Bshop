@@ -22,9 +22,26 @@ class CreateAdminsTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
+            $table->string('phone');
+            $table->string('brand');
+            $table->string('category');
+            $table->string('product');
+            $table->string('slider');
+            $table->string('coupons');
+            $table->string('blog');
+            $table->string('shipping');
+            $table->string('setting');
+            $table->string('returnorder');
+            $table->string('review');
+            $table->string('orders');
+            $table->string('stock');
+            $table->string('reports');
+            $table->string('alluser');
+            $table->string('adminuserrole');
+            $table->integer('type');
             $table->timestamps();
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.
