@@ -175,6 +175,7 @@
                             <!-- /.container-fluid -->
                         </div>
                     </div>
+                    <h4><b>Products Matched</b><span class="badge badge-danger">{{count($products)}}</span></h4>
 
 
                     <div class="clearfix filters-container m-t-10">
