@@ -22,7 +22,7 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'regemail' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:255'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
@@ -30,9 +30,14 @@ class CreateNewUser implements CreatesNewUsers
 
         return User::create([
             'name' => $input['name'],
-            'email' => $input['email'],
+            'email' => $input['regemail'],
             'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
         ]);
+        $notification=array(
+            'message'=>'Registration Compelted Successfully',
+            'alert-type'=>'info'
+        );
+        return redirect()->route('dashboard')->with($notification);
     }
 }

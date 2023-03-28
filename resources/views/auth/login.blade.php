@@ -29,10 +29,20 @@
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
                                 <input type="email" class="form-control unicase-form-control text-input" id="email" name="email" >
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
                                 <input type="password" class="form-control unicase-form-control text-input" id="password" name="password" >
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{$message}}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="radio outer-xs">
                                 <label>
@@ -62,8 +72,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
-                                <input type="email" name="email" class="form-control unicase-form-control text-input" id="email" >
-                                @error('email')
+                                <input type="email" name="regemail" class="form-control unicase-form-control text-input" id="email" >
+                                @error('regemail')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{$message}}</strong>
                                 </span>
