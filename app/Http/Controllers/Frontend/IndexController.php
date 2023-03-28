@@ -137,11 +137,14 @@ public function SubCatWiseProduct($subcat_id,$slug){
            'size'=>$product_size_en,
         ));
     }
+    public function SearchProduct(Request $request){
+        $item=$request->search;
 
+        $categories=Category::orderBy('category_name_en','ASC')->get();
+        $products=Product::where('product_name_en','LIKE',"%$item%")->get();
+        return view('frontend.Product.search',compact('products','categories'));
 
-
-
-
+    }
 
 
 }

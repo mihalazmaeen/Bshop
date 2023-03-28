@@ -311,5 +311,6 @@ Route::prefix('adminuserrole')->group(function(){
     Route::post('/update/role', [AdminRoleController::class, 'UpdateAdminRole'])->name('update-adminrole');
 
 });
+Route::post('/search/product', [IndexController::class, 'SearchProduct'])->name('product.search');
 
 
