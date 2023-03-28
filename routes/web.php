@@ -184,6 +184,8 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'],'namespace'=>'User'
     Route::get('/order_details/{order_id}',[AllUserController::class, 'OrderDetails']);
 //    Invoice Download
     Route::get('/invoice/{order_id}',[AllUserController::class, 'InvoiceDownload']);
+//    Track Order
+    Route::post('/order/track',[AllUserController::class, 'TrackOrder'])->name('track-order');
 //Return Order
     Route::post('/order/return/{order_id}',[AllUserController::class, 'ReturnOrder'])->name('return-order');
     Route::get('/order/returnlist',[AllUserController::class, 'ReturnOrderView'])->name('my-returns');

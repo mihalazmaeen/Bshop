@@ -10,6 +10,7 @@
                         <li><a href="#"><i class="icon fa fa-user"></i>
                                 @if(session()->get('language')=='bengali') আমার একাউন্ট @else My Acoount @endif</a></li>
                         <li><a href="{{route('wishlist')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+                        <li><a href="" type="button"  data-toggle="modal" data-target="#exampleModal1"><i class="icon fa fa-heart"></i>Track Order</a></li>
                         <li><a href="{{route('mycart')}}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="{{route('checkout')}}"><i class="icon fa fa-check"></i>Checkout</a></li>
                         <li>
@@ -230,6 +231,34 @@
 
     </div>
     <!-- /.header-nav -->
-    <!-- ============================================== NAVBAR : END ============================================== -->
+    <!-- ============================================== NAVBAR : END ============================================== -
+{{--    Order Tracking Modal--}}
 
+
+    <!Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Order tracking</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('track-order')}}">
+                        @csrf
+                        <div class="modal-body">
+                            <label>Enter Invoice</label>
+                            <input type="text" class="form-control" name="invoice" placeholder="Enter Your Invoice" required>
+
+                        </div>
+                        <button class="btn btn-danger" type="submit" style="margin-left: 17px">Track Now</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </header>
