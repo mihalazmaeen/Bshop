@@ -142,6 +142,7 @@ public function SubCatWiseProduct($subcat_id,$slug){
         ));
     }
     public function SearchProduct(Request $request){
+        $request->validate(['search'=>'required']);
         $item=$request->search;
 
         $categories=Category::orderBy('category_name_en','ASC')->get();
