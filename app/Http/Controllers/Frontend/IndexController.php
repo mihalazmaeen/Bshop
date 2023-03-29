@@ -142,6 +142,8 @@ public function SubCatWiseProduct($subcat_id,$slug){
         ));
     }
     public function SearchProduct(Request $request){
+
+//        Product Normal Search
         $request->validate(['search'=>'required']);
         $item=$request->search;
 
