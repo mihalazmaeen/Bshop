@@ -221,7 +221,7 @@ jQuery(".brand-slider").owlCarousel({
     pagination: false,
     paginationSpeed : 400,
     navigationText: ["", ""]
-});    
+});
 jQuery("#advertisement").owlCarousel({
     items : 1,
     itemsDesktopSmall :[979,2],
@@ -231,7 +231,7 @@ jQuery("#advertisement").owlCarousel({
     pagination: true,
     paginationSpeed : 400,
     navigationText: ["", ""]
-});    
+});
 
 
 
@@ -311,7 +311,7 @@ jQuery(function(){
         pagination: true
     });
 
-  
+
 });
 
 
@@ -319,7 +319,7 @@ jQuery(function(){
 
 
 /*===================================================================================*/
-/*  WOW 
+/*  WOW
 /*===================================================================================*/
 
 jQuery(function () {
@@ -328,10 +328,27 @@ jQuery(function () {
 
 
 /*===================================================================================*/
-/*  TOOLTIP 
+/*  TOOLTIP
 /*===================================================================================*/
-jQuery("[data-toggle='tooltip']").tooltip(); 
+jQuery("[data-toggle='tooltip']").tooltip();
 
+    const site_url = "http://127.0.0.1:8000/";
+    $("body").on("keyup","#search", function(){
+        let text=$("#search").val();
+        console.log(text);
+        $.ajax({
+            data:{search:text},
+            url: site_url + "livesearch-product",
+            method: "post",
+            beforSend:function (request){
+                return request.setReuestHeader('X-CSRF-Token',("meta[name='csrf-token']"))
+            },
+            success:function (result){
+
+            }
+
+        })
+    })
 
 
 

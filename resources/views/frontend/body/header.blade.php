@@ -89,7 +89,7 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" name="search" placeholder="Search Product..." />
+                                <input class="search-field" id="search" name="search" placeholder="Search Product..." />
                                 <button class="search-button" type="submit"></button> </div>
                         </form>
                     </div>

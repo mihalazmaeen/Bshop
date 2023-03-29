@@ -312,5 +312,6 @@ Route::prefix('adminuserrole')->group(function(){
 
 });
 Route::post('/search/product', [IndexController::class, 'SearchProduct'])->name('product.search');
+Route::post('/livesearch-product', [IndexController::class, 'LiveProductSearch']);
 
 

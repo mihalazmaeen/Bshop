@@ -152,6 +152,9 @@ public function SubCatWiseProduct($subcat_id,$slug){
         return view('frontend.Product.search',compact('products','categories'));
 
     }
+    public function LiveProductSearch(Request $request){
+
+    }
 
 
 }
