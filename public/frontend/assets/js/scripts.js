@@ -344,7 +344,7 @@ jQuery("[data-toggle='tooltip']").tooltip();
                 return request.setReuestHeader('X-CSRF-Token',("meta[name='csrf-token']"))
             },
             success:function (result){
-
+                $("#liveSearch").html(result);
             }
 
         })
