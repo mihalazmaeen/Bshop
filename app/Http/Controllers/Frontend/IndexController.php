@@ -157,7 +157,7 @@ public function SubCatWiseProduct($subcat_id,$slug){
         $item=$request->search;
 
 
-        $products=Product::where('product_name_en','LIKE',"%$item%")->select('product_name_en','product_thumbnail')->limit(5)->get();
+        $products=Product::where('product_name_en','LIKE',"%$item%")->select('product_name_en','product_thumbnail','selling_price','id','product_slug_en')->limit(5)->get();
         return view('frontend.Product.live_search',compact('products'));
     }
 
