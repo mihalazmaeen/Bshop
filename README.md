@@ -5,6 +5,7 @@ Advanced E-Commerce app with full dynamic frontend for category and section wise
 
 
 1.Login/Registration with proper authentication
+another product
 2.Separate admin/user dashboard
 3.Full profile control for admin/user
 4.Product wishlist,cart funtionality
