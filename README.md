@@ -1,4 +1,4 @@
-Click here to watch the demo of the App: (Bshop)[https://drive.google.com/file/d/1V-pWcl7AKEsjp--lV1SKuHpc3eG7CfgH/view?usp=share_link]
+Click here to watch the demo of the App: [BShop]([Bshop](https://drive.google.com/file/d/1V-pWcl7AKEsjp--lV1SKuHpc3eG7CfgH/view?usp=share_link))
 
 About Bshop:
 Advanced E-Commerce app with full dynamic frontend for category and section wise products and also with the following features and many more:
